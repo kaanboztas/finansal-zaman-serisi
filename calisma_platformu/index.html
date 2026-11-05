@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FZSA Sınav Hazırlık Platformu</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav id="nav">
+  <h1>📘 FZSA Hazırlık</h1>
+  <div class="sub">Finansal Zaman Serisi Analizi · Prof. Dr. Esin Firuzan<br>Yalnızca ders PDF'lerinden hazırlanmıştır.</div>
+  <div class="grp">Başlangıç</div>
+  <a data-s="plan">🗓️ Çalışma Planı</a>
+  <a data-s="dikkat">⚠️ Tuzaklar & Tutarsızlıklar</a>
+  <div class="grp">Konu Anlatımı</div>
+  <a data-s="d1">Ders 1 · Giriş</a>
+  <a data-s="d2">Ders 2 · Piyasa, Veri, Getiri</a>
+  <a data-s="d3">Ders 3 · Temel Veri Analizi</a>
+  <a data-s="d4">Ders 4 · ZS Kavramları & Bileşenler</a>
+  <a data-s="d5">Ders 5 · Normallik & Durağanlık</a>
+  <div class="grp">Uygulamalar</div>
+  <a data-s="u1">Uygulama 1 · DJI</a>
+  <a data-s="u2">Uygulama 2 · TESLA</a>
+  <div class="grp">Pratik</div>
+  <a data-s="mini">✍️ Konu Testleri</a>
+  <a data-s="exam">📝 Deneme Sınavları</a>
+  <a data-s="flash">🃏 Bilgi Kartları</a>
+  <a data-s="formul">📄 Formül Kâğıdı</a>
+  <a data-s="ilerleme">📊 İlerleme</a>
+  <div class="tools">
+    <button id="themeBtn">🌙 Koyu tema</button>
+    <button id="fontUp">A+</button><button id="fontDown">A−</button>
+  </div>
+</nav>
+
+<main>
+<!-- ================= PLAN ================= -->
+<section id="plan">
+<h2>🗓️ Çalışma Planı (Sınav yarın 11:00)</h2>
+<p>Sırayı takip et. Her dersten sonra o dersin <b>Konu Testi</b>ni çöz, yanlışlarını konu anlatımına dönüp oku. Bitirdiğin bölümde en alttaki <b>“Bu bölümü bitirdim”</b> butonuna bas, sol menüde ✓ görünecek.</p>
+<table>
+<tr><th>Saat</th><th>Yapılacak</th><th>Süre</th></tr>
+<tr><td>17:00 – 17:20</td><td>Ders 1 (kısa) + Ders 2'nin ilk yarısı (piyasa, veri türleri)</td><td>20 dk</td></tr>
+<tr><td>17:20 – 18:30</td><td>Ders 2 getiri hesapları – örnekleri <b>kendin kâğıtta çöz</b> → Ders 2 testi</td><td>70 dk</td></tr>
+<tr><td>18:30 – 19:30</td><td>Ders 3 (dağılımlar, çarpıklık/basıklık testleri, JB) → Ders 3 testi</td><td>60 dk</td></tr>
+<tr><td>19:30 – 20:00</td><td>Yemek / mola</td><td></td></tr>
+<tr><td>20:00 – 20:45</td><td>Ders 4 (kavramlar, bileşenler) → Ders 4 testi</td><td>45 dk</td></tr>
+<tr><td>20:45 – 22:00</td><td>Ders 5 (durağanlık, Box-Cox, fark alma, birim kök) → Ders 5 testi</td><td>75 dk</td></tr>
+<tr><td>22:00 – 23:15</td><td><b>Uygulama videolarını izle</b> + Uygulama 1 & 2 sayfaları (video izlerken açık tut)</td><td>75 dk</td></tr>
+<tr><td>23:15 – 00:15</td><td>Deneme Sınavı 1 → yanlışları oku</td><td>60 dk</td></tr>
+<tr><td>00:15</td><td>Uyku 😴 (uykusuz sınav = unutulan bilgi)</td><td></td></tr>
+<tr><td>07:30 – 08:30</td><td>Deneme Sınavı 2</td><td>60 dk</td></tr>
+<tr><td>08:30 – 09:30</td><td>Bilgi Kartları + “Tuzaklar” sayfası + Formül Kâğıdı</td><td>60 dk</td></tr>
+<tr><td>09:30 – 10:00</td><td>Deneme Sınavı 3 (hızlı) veya sadece yanlış yaptıklarına tekrar</td><td>30 dk</td></tr>
+</table>
+<div class="box tip">Sınav klasik + D/Y + boşluk doldurma + test karışık. Bu yüzden: <b>tanımları kelimesi kelimesine</b>, <b>H<sub>0</sub> hipotezlerini</b> ve <b>formülleri</b> ezberle; getiri hesaplarını elle yapabilmelisin. Her testin yanında hangi PDF/sayfadan geldiği yazıyor.</div>
+<div class="box warn">Bazı slaytlarda yazım hatası ve kendi kuralıyla çelişen yorumlar var. Videoyu izlemeden önce <a onclick="go('dikkat')" style="cursor:pointer;color:var(--accent)"><b>Tuzaklar</b></a> sayfasını oku, videoda hocanın bu noktalarda ne dediğine özellikle dikkat et.</div>
+</section>
+
+<!-- ================= DİKKAT ================= -->
+<section id="dikkat">
+<h2>⚠️ Tuzaklar & PDF İçi Tutarsızlıklar</h2>
+<p>Aşağıdakiler PDF'lerin <b>kendi içinde</b> çelişen yerleri. Doğru cevabı yine PDF'teki kurala dayanarak gösterdim. Videoda hocanın bu yerleri düzeltip düzeltmediğine bak.</p>
+<div class="card"><h4>1) ADF testi yorumu (DJI uygulaması s.18-20)</h4>
+Slaytta: <i>“H0: Seri durağan değildir … tüm lag'ler için H0 reddedilir. Yani seri durağan değildir.”</i><br>
+Kural (Ders 5 s.42): H<sub>0</sub>: δ=0 → seri birim köke sahip, <b>durağan değil</b>. H<sub>0</sub> <b>reddedilirse</b> → seri <b>durağandır</b>.<br>
+Çıktıda tüm p-değerleri 0.01 &lt; 0.05 → H<sub>0</sub> reddedilir → <b>mantıken sonuç: seri (DJI getirisi) durağandır.</b> Slayttaki “durağan değildir” ifadesi kuralla çelişiyor.</div>
+<div class="card"><h4>2) Jarque-Bera Örnek-6 (Ders 3 s.30)</h4>
+p-değeri = 2.265e-14 (≈0) &lt; α. Ders 3 s.29 kuralı: p-value &lt; α ⇒ H<sub>0</sub> reddet. H<sub>0</sub>: “Veriler normal kitleden gelmektedir.”<br>
+Slaytta “normal dağılan bir kitleden gelmektedir” yazıyor; kurala göre doğru yorum: <b>r<sub>t</sub> normal dağılmıyor</b>.</div>
+<div class="card"><h4>3) Sürekli bileşik faiz değeri (Ders 2 s.38)</h4>
+Metinde “net değeri en fazla <b>1.052$</b>” yazıyor; ama aynı slayttaki Tsay tablosunda sürekli (continuously) değer <b>$1.10517</b>. Tablo ve A=C·exp(r·n)=1·e<sup>0.1</sup> ile tutarlı olan <b>1.10517$</b>'dır.</div>
+<div class="card"><h4>4) Yıllıklandırılmış getiri kolay formülü (Ders 2 s.35)</h4>
+Slaytta exp[(1/k)Σ(1+R<sub>t−j</sub>)] − 1 yazılmış. Geometrik ortalama ile eşit olması için toplamın içinde <b>ln(1+R<sub>t−j</sub>)</b> olmalıdır: exp[(1/k)Σ ln(1+R<sub>t−j</sub>)] − 1. (ln yazımı atlanmış.)</div>
+<div class="card"><h4>5) Basit getirinin alt sınırı (Ders 2 s.25 ↔ Ders 3 s.11)</h4>
+Ders 2'de “R<sub>t</sub>'nin en küçük değeri 1 veya %100” yazar; Ders 3 s.11'de “getirinin alt değeri <b>−1</b>”. Fiyat negatif olamadığı için 1+R<sub>t</sub> ≥ 0 → <b>R<sub>t</sub> ≥ −1 (en fazla %100 kayıp)</b>.</div>
+<div class="card"><h4>6) Öngörü horizonu (Ders 4 s.11)</h4>
+Slaytta “Uzun Dönem: t &lt; 90 zd” yazıyor; sıralamaya göre (Orta: 30 &lt; t &lt; 90) uzun dönem <b>t &gt; 90 zaman dilimi</b> olmalı.</div>
+<div class="card"><h4>7) KPSS hipotezleri (Ders 5 s.45)</h4>
+İkisi de “H<sub>0</sub>” diye yazılmış; ikincisi aslında alternatif: <b>H<sub>0</sub>: σ<sub>u</sub>²=0 (durağan)</b>, <b>H<sub>1</sub>: σ<sub>u</sub>²&gt;0 (birim kök var)</b>. KPSS'de H<sub>0</sub> <b>durağanlık</b>tır (ADF'nin tersi!).</div>
+<div class="card"><h4>8) DJI Shapiro-Wilk (Uygulama 1 s.11)</h4>
+“Yıllara göre veriler normal değil” deniyor; ama 2022 (p=0.287) ve 2023 (p=0.781) için p &gt; 0.05 → bu iki yılda H<sub>0</sub> reddedilemez (normal). Diğer yıllar (2020, 2021, 2024, 2025) normal değil.</div>
+<div class="card"><h4>9) Ders 3 s.27</h4>
+Basıklık testi slaytında başlık “örneklem çarpıklığının testi” yazıyor; doğrusu <b>basıklık</b>: t = (K̂ − 3)/√(24/T).</div>
+<div class="box exam">ADF ↔ KPSS H<sub>0</sub> farkı ve “H<sub>0</sub> red ne demek” soruları en klasik tuzaklardır. ADF: H<sub>0</sub> = durağan değil (birim kök var). KPSS: H<sub>0</sub> = durağan.</div>
+</section>
+
+<!-- ================= DERS 1 ================= -->
+<section id="d1">
+<h2>Ders 1 · Giriş</h2>
+<h3>Dersin amacı <span class="src">Ders1 s.2</span></h3>
+<p>Finansal verilerin temel özellikleri ve finansal ekonometrik modeller konusunda bilgi verilerek, finansal zaman serisi verilerinin <b>modellenmesi</b> ve <b>öngörü</b> yapılmasını sağlamaktır.</p>
+<h3>Öğrenme kazanımları <span class="src">Ders1 s.3-4</span></h3>
+<div class="grid2"><ul>
+<li>Zaman serisi verisi, getiri hesaplama, finans terimleri</li>
+<li>Rassal yürüyüş, beyaz gürültü süreçleri, durağanlık, zaman değişmezlik özelliği, Wiener süreçleri</li>
+<li>Birim kök varlığını tespit ve testleri</li>
+<li>Yapısal kırılma tespiti ve testleri</li>
+<li>Nedensellik analizi</li>
+<li>ARCH etkisi analizi</li></ul>
+<ul><li>Trend analizi</li><li>Hareketli ortalama yöntemi</li><li>ETS modelleri</li><li>ARIMA modelleri</li><li>ARCH/GARCH modelleri</li></ul></div>
+<h3>Değerlendirme <span class="src">Ders1 s.6</span></h3>
+<p>Arasınav <b>%30</b> · Ödev-Sunum <b>%30</b> · Yarıyıl Sonu <b>%40</b></p>
+<h3>Finansal zaman serisi özellikleri ve slayt grafikleri <span class="src">Ders1 s.8-11</span></h3>
+<p>Slaytlarda finansal zaman serilerinin 4 temel özelliği her biri için özel birer grafikle gösterilmiştir:</p>
+
+<h4>1) Doğrusal değildirler (Non-linear) <span class="src">Ders1 s.8</span></h4>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği: Doğrusal Olmayan (Non-Linear) Zaman Serileri</span><span class="src">Ders 1 · s.8</span></div>
+  <div class="fig-img-wrap"><img src="img/d1_08.png" alt="Doğrusal Değildirler"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>(a) ve (d) Panelleri:</b> Ani sıçrama ve rejim değişimli dalgalanmalar</span>
+    <span class="fig-tag"><b>(b) ve (c) Panelleri:</b> Tek bir doğru (lineer hat) ile temsil edilemeyen eğrisel/dalgalı yapı</span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> Finansal seriler zaman içinde sabit eğimli düz bir doğru boyunca hareket etmez. Grafikteki <b>(a), (b), (c) ve (d)</b> panellerinde görüldüğü gibi seriler bükülmeler, eğrisel döngüler (c panelindeki yumuşak eğriler) ve asimetrik sıçramalar sergiler. Bu yüzden doğrusal (lineer) varsayım çoğu zaman yetersiz kalır.
+  </div>
+</div>
+
+<h4>2) Yapısal kırılmalara sahiptirler (Structural Breaks) <span class="src">Ders1 s.9</span></h4>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği: Yapısal Kırılmalar (Kriz Dönemlerinde Ortalama/Rejim Değişimi)</span><span class="src">Ders 1 · s.9</span></div>
+  <div class="fig-img-wrap"><img src="img/d1_09.png" alt="Yapısal Kırılmalar"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Kırmızı Yatay Çizgiler:</b> Her alt dönemdeki farklı ortalama (rejim) düzeyi</span>
+    <span class="fig-tag"><b>Gri Bölgeler & Oklar:</b> Kırılma noktaları (Küresel Finansal Kriz, Borç Krizi, Yunanistan Krizi, Brexit, ABD Piyasa Çöküşü)</span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> Grafik üzerinde siyah oklarla işaretlenen ekonomik/politik şoklar (<i>Global Financial Crisis, Sovereign Debt Crisis, Greek Crisis, Brexit, US Market Crash</i>) serinin davranışını kalıcı veya uzun süreli olarak değiştirir. <b>Kırmızı yatay çizgilere</b> dikkat edilirse, her kriz sonrasında serinin etrafında salındığı ortalama seviye basamak basamak değişmektedir. İşte bu ani düzey/eğim değişimlerine <b>yapısal kırılma</b> denir.
+  </div>
+</div>
+
+<h4>3) Yüksek frekanslıdırlar ve oynaktırlar (High-frequency & Volatile) <span class="src">Ders1 s.10</span></h4>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği: Yüksek Frekanslı Veri, Log-Getiri ve Frekans (FFT) Analizi</span><span class="src">Ders 1 · s.10</span></div>
+  <div class="fig-img-wrap"><img src="img/d1_10.png" alt="Yüksek Frekans ve Oynaklık"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Üst Panel (US-EURO):</b> 2500 gözlemlik döviz kuru seviyesi</span>
+    <span class="fig-tag"><b>Orta Panel (Log-return):</b> 0 etrafında çok sık ve şiddetli salınan log-getiri</span>
+    <span class="fig-tag"><b>Alt Panel (FFT):</b> Tüm frekanslara yayılmış yoğun oynaklık bileşenleri</span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> Üstte US-EURO kurunun fiyat düzeyi, ortada ise onun <b>Log-return (log-getiri)</b> serisi yer alır. Orta panelde mavi çizgilerin 0 etrafında çok sık (yüksek frekanslı) ve dönem dönem genliği büyüyen (oynak/volatil) zikzaklar çizdiği görülür. Alttaki FFT (Fast Fourier Transform) grafiği ise dalgalanmaların tek bir periyotta değil, tüm frekans bandı boyunca yoğunlaştığını gösterir.
+  </div>
+</div>
+
+<h4>4) Asimetriktirler (Asymmetric / Skewed) <span class="src">Ders1 s.11</span></h4>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği: Simetrik (Normal) vs. Sola ve Sağa Çarpık (Asimetrik) Dağılımlar</span><span class="src">Ders 1 · s.11</span></div>
+  <div class="fig-img-wrap"><img src="img/d1_11.png" alt="Asimetriktirler"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>A (Yeşil ✓):</b> Normal (Simetrik) — Noktalar Q-Q doğrusu üzerinde</span>
+    <span class="fig-tag"><b>B (Kırmızı ✗):</b> Sola Çarpık (Left-skewed) — Q-Q plot aşağı bükülüyor</span>
+    <span class="fig-tag"><b>C (Kırmızı ✗):</b> Sağa Çarpık (Right-skewed) — Sağ kuyruk uzun, Q-Q plot yukarı kıvrılıyor</span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> Sol sütunda histogramlar, sağ sütunda ise karşılık gelen <b>Q-Q Plot</b> grafikleri gösterilmiştir:
+    <ul>
+      <li><b>A (Normal distribution):</b> Çan eğrisi simetriktir; Q-Q plotta tüm noktalar 45°'lik referans doğrusu üzerinde dizilir.</li>
+      <li><b>B (Left-skewed / Sola çarpık):</b> Sol kuyruk uzundur (negatif uç değerler vardır); Q-Q plotta noktalar doğrudan saparak yay çizer.</li>
+      <li><b>C (Right-skewed / Sağa çarpık):</b> Sağ kuyruk uzundur; finansal veriler çoğunlukla B veya C gibi <b>asimetrik (çarpık)</b> yapıdadır, simetrik normal dağılıma uymaz.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="box exam">“Finansal zaman serilerinin özelliklerini yazınız” → Doğrusal olmama, yapısal kırılma, yüksek frekans, oynaklık, asimetri.</div>
+<div class="done-btn"><button class="primary" data-done="d1">✓ Bu bölümü bitirdim</button></div>
+</section>
+
+<!-- ================= DERS 2 ================= -->
+<section id="d2">
+<h2>Ders 2 · Finansal Piyasa, Veri ve Getiri</h2>
+
+<h3>1. Finansal piyasa <span class="src">s.2-5</span></h3>
+<p>Finansal piyasa, sistemin bir parçası olarak <b>“Para ve Sermaye”</b>nin <b>“Arz ve Talep”</b> edilmesi ile oluşur.</p>
+<table>
+<tr><th>Para Piyasası</th><th>Sermaye Piyasası</th></tr>
+<tr><td>Fon arz ve talep edenlerin karşılaştığı, araçların vadeleri <b>12 ayı geçmeyen</b> piyasa.<br>
+Araçlar: Mevduat, Hazine bonoları, Tahvil, Finansman bonoları, Mevduat sertifikaları, Repo, Banka kabulleri, Banka bonoları, Euro/Dolar, Varlığa dayalı menkul kıymetler.<br>
+Likiditesi <b>yüksektir</b>; tasarrufların yatırıma dönüşmesinden çok <b>likidite ihtiyacının karşılandığı</b> piyasalardır. Dünyada en etkin ve gelişmiş piyasalar <b>para piyasalarıdır</b>.</td>
+<td><b>Orta ve uzun vadeli</b> ödünç verilebilir fonların, sermaye piyasası araçlarının alım-satımı suretiyle tasarruf sahiplerinden fon talep edenlere aktarılmasını sağlar.<br>
+İkiye ayrılır: <b>birincil – ikincil</b> piyasa; ayrıca <b>spot – vadeli</b> piyasa.</td></tr>
+</table>
+
+<h3>2. Finansal veri ve karakteristik özellikleri (Slayt Grafikleri) <span class="src">s.6-13</span></h3>
+<p>Genelde açıklamak istediğimiz finansal değişkenler: varlık <b>fiyatları</b> (hisse senedi, endeks, döviz kuru), varlık <b>getirileri</b> (hisse, endeks getirileri, faiz oranları), <b>oynaklık</b>, <b>işlem hacmi</b>, <b>kurumsal finansman değişkenleri</b> (borç ihracı, riskten korunma araçlarının kullanımı).</p>
+<p><b>Ekonomik veri – finansal veri farkı:</b> Ekonomik veri genellikle düzenli olarak <b>takvim zamanlarında</b> incelenir; finansal veri <b>gerçek zamanlı</b> veya <b>tik-tak</b> şeklinde çok kısa zaman dilimlerinde incelenir. Finansal veri, uygulanacak ekonometrik yaklaşımı şekillendiren <b>4 temel tanımlayıcı özellik</b> taşır (Slayt 8–13'teki örnek grafikler):</p>
+
+<h4>a) Aykırı Gözlem (Outlier) <span class="src">Ders2 s.8</span></h4>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği: Aykırı Gözlem (Outlier)</span><span class="src">Ders 2 · s.8</span></div>
+  <div class="fig-img-wrap"><img src="img/d2_08.png" alt="Aykırı Gözlem Grafiği"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Yatay Eksen:</b> Zaman boyunca ardışık gözlemler</span>
+    <span class="fig-tag"><b>Normal Salınım Bandı:</b> Ortadaki yatay referans çizgisi etrafındaki küçük çubuklar</span>
+    <span class="fig-tag"><b>Sol-Orta Kısımdaki Uzun Siyah Çubuklar:</b> Aşağı (negatif) yönde çok sert 2-3 ekstrem sıçrama = <b>Aykırı Gözlem</b></span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> Grafikte gözlemlerin büyük çoğunluğu merkezdeki yatay çizginin hemen altında ve üstünde, birinci yatay kılavuz çizgisini bile aşmayan küçük çubuklar halinde dalgalanmaktadır. Ancak grafiğin sol-orta bölümünde <b>aşağı doğru 3. yatay kılavuz çizgisine kadar inen çok uzun siyah bir çubuk</b> (ve hemen solunda iki orta-uzun çubuk) vardır. Serinin genel dağılımından ve normal salınım aralığından bu şekilde aşırı kopuk olan tekil uç değerlere <b>aykırı gözlem (outlier)</b> denir; finansal verilerde ani şok/haber anlarında sıkça görülür ve ortalama/varyans tahminlerini saptırır.
+  </div>
+</div>
+
+<h4>b) Trend ve İki Farklı Trend Davranışı <span class="src">Ders2 s.9-10</span></h4>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Grafiği: Trend (Azalan Eğilim)</span><span class="src">Ders 2 · s.9</span></div>
+    <div class="fig-img-wrap"><img src="img/d2_09.png" alt="Trend Grafiği"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Sol Üstten Sağ Alta:</b> Uzun dönemli kalıcı düşüş eğilimi</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Seri kısa vadeli küçük iniş-çıkışlar yapsa da, zaman ilerledikçe genel seviyesi sol üstten sağ alta doğru <b>sürekli azalmaktadır</b>. Serinin ortalaması zamana göre sabit değildir; uzun dönemli bir <b>azalan trend</b> içerir.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Grafiği: İki Farklı Trend Davranışı</span><span class="src">Ders 2 · s.10</span></div>
+    <div class="fig-img-wrap"><img src="img/d2_10.png" alt="İki Farklı Trend Davranışı"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>1. Yarı:</b> Yukarı yönlü (artan) trend</span>
+      <span class="fig-tag"><b>Zirve Noktası:</b> Trend yönünün kırıldığı dönüm noktası</span>
+      <span class="fig-tag"><b>2. Yarı:</b> Aşağı yönlü (azalan) trend</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Bir finansal seri tüm örneklem boyunca tek bir trend yönüne sahip olmak zorunda değildir. Grafikte seri önce <b>artan bir trendle</b> zirveye ulaşmakta, ortadaki dönüm noktasından sonra ise yön değiştirerek <b>azalan bir trend</b> sergilemektedir.
+    </div>
+  </div>
+</div>
+
+<h4>c) Ortalamaya Dönüş (Mean Reversion) ve Çoklu Ortalama Rejimleri <span class="src">Ders2 s.11-12</span></h4>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Grafiği: Ortalamaya Dönüş (Aykırı Gözlemli)</span><span class="src">Ders 2 · s.11</span></div>
+    <div class="fig-img-wrap"><img src="img/d2_11.png" alt="Ortalamaya Dönüş"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Üst Yatay Bant:</b> Serinin uzun dönem denge ortalaması</span>
+      <span class="fig-tag"><b>2 Keskin Aşağı Sarkma:</b> Geçici aykırı şoklar sonrası hızla eski ortalamaya geri dönüş</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması (Mean-Reversion with Outliers):</b> Seri üst kısımda sabit bir yatay ortalama etrafında dar bir bantta hareket etmektedir. İki kez aşağı doğru çok sert şok (aykırı gözlem) yaşanmasına rağmen seri aşağıda kalmamış, <b>hızla tekrar eski ortalama düzeyine geri dönmüştür</b>. Buna <b>ortalamaya dönüş (mean reversion)</b> denir.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Grafiği: Birden Fazla Ortalamaya Dönüş</span><span class="src">Ders 2 · s.12</span></div>
+    <div class="fig-img-wrap"><img src="img/d2_12.png" alt="Birden Fazla Ortalamaya Dönüş"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Farklı Yatay Basamaklar:</b> Dönemden döneme değişen yerel ortalamalar</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Seri belirli bir dönem boyunca bir ortalama etrafında salınmakta, ardından bir rejim değişimiyle daha yüksek veya daha düşük <b>başka bir ortalama seviyesine</b> geçip o yeni ortalama etrafında salınmaya (ortalamaya dönmeye) devam etmektedir.
+    </div>
+  </div>
+</div>
+
+<h4>d) Oynaklık Kümelemesi (Volatility Clustering) <span class="src">Ders2 s.13</span></h4>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği: Oynaklık Kümeleme (Volatility Clustering)</span><span class="src">Ders 2 · s.13</span></div>
+  <div class="fig-img-wrap"><img src="img/d2_13.png" alt="Oynaklık Kümeleme"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Orta Yatay Çizgi:</b> Sabit ortalama (yaklaşık 0)</span>
+    <span class="fig-tag"><b>Sakin Dönemler:</b> Çizgiye çok yakın, dar genlikli salınımlar (düşük varyans)</span>
+    <span class="fig-tag"><b>Fırtınalı Dönemler (Sol ve Sağ-Orta):</b> Büyük pozitif ve negatif sıçramaların art arda kümelenmesi (yüksek varyans)</span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> Getiri serilerinde ortalama sabit (merkez çizgisi etrafında) görünse bile <b>varyans (salınım genişliği) zaman içinde sabit değildir</b>. Grafikte görüldüğü üzere büyük değişimlerin (yüksek oynaklığın) ardından yine büyük değişimler gelmekte, küçük değişimlerin (sakin dönemlerin) ardından ise yine küçük değişimler gelmektedir. Yüksek oynaklığın belirli zaman aralıklarında bir arada toplanmasına <b>oynaklık kümelemesi (volatility clustering)</b> denir (ARCH/GARCH modellerinin çıkış noktasıdır).
+  </div>
+</div>
+
+<p><b>Varlık (asset) türleri</b> <span class="src">s.14</span>: Tahviller, Hisse senetleri, Yatırım fonları, Borsada işlem gören fon ve tahviller (ETF), Türev menkul kıymetler.</p>
+
+<h3>3. Neden fiyat yerine GETİRİ? <span class="src">s.15</span></h3>
+<p><b>Campbell, Lo ve MacKinlay (1997)</b>'ye göre iki sebep:</p>
+<ol><li>Ortalama bir yatırımcı için varlığın getirisi, yatırım fırsatlarının <b>tam (complete)</b> ve <b>ölçek-bağımsız (scale-free)</b> özet bilgisini verir.</li>
+<li>Getiri serileri, fiyat serilerine göre daha <b>çekici istatistiksel özellikler</b> içerir.</li></ol>
+<p>Getiri <b>aktif karlılık (asset valuation)</b> olarak da adlandırılır.</p>
+
+<h3>4. Veri türleri <span class="src">s.16-19</span></h3>
+<table><tr><th>Tür</th><th>Birim (i)</th><th>Zaman (t)</th></tr>
+<tr><td>Kesit verisi</td><td>Çok firma</td><td>Tek zaman anı (ör. 2021)</td></tr>
+<tr><td>Zaman serisi verisi</td><td>Tek firma</td><td>Çok zaman anı</td></tr>
+<tr><td>Panel veri</td><td>Çok firma</td><td>Çok zaman anı</td></tr></table>
+<p><b>Zaman serisi:</b> ardışık zaman dilimlerinde gerçekleşen gözlemler topluluğu; sıralı gözlemler zinciri; <b>eşit zaman aralıklarında</b> sıralı gözlemler zinciridir. Veri eşit aralıklarla (günlük, haftalık, aylık…) toplanmalıdır.</p>
+<p><b>FZSA</b> <span class="src">s.20</span>: Varlıklar üzerindeki GETİRİ'nin zaman içindeki davranışlarının modellenmesi ile ilgilenir. Teori + ampirik uygulama birleşimidir. <b>Belirsizlik</b> altında (belirsizlik/korku/finansal stres indeksi) analiz yapıldığı için istatistiksel teori önemlidir. Ekonomi dinamiklerinden doğrudan/dolaylı etkilendiği için analizi <b>zordur</b>.</p>
+
+<h3>5. Basit getiri <span class="src">s.21-25</span></h3>
+<p>Varsayım: t−1 anında P<sub>t−1</sub>'den alınıp t anında P<sub>t</sub>'den satılır; arada nakit akışı (<b>temettü</b>) yoktur. Temettü: şirket hissedarlarına ortaklık payları oranında kâr payı dağıtılmasıdır.</p>
+<p><b>Basit getiri:</b> Yatırımdan elde edilen faiz gelirinin vade sonunda tekrar yatırıma dönüştürülmediği durumdaki getiridir. t−1'den t'ye kadar geçen süreye <b>elde tutma zamanı (holding period)</b> denir; R<sub>t</sub> elde tutma zamanının getirisidir (holding period return). Elde tutma zamanı bir saniyeden 50 yıla kadar olabilir.</p>
+<div class="f">Basit Brüt Getiri: 1 + R<sub>t</sub> = <span class="frac"><span>P<sub>t</sub></span><span>P<sub>t−1</sub></span></span>
+&nbsp;&nbsp;&nbsp;&nbsp; Basit Net Getiri: R<sub>t</sub> = <span class="frac"><span>P<sub>t</sub></span><span>P<sub>t−1</sub></span></span> − 1 = <span class="frac"><span>P<sub>t</sub> − P<sub>t−1</sub></span><span>P<sub>t−1</sub></span></span></div>
+<ul><li>Brüt getiri: bugün 1 TL yatırılan kıymetin <b>birikimli değeri</b> olarak yorumlanır.</li>
+<li>Aksi söylenmedikçe “getiri” denince <b>NET getiri</b> anlaşılır.</li>
+<li>Fiyat negatif olamayacağından getirinin alt sınırı vardır (bkz. Tuzaklar #5: R<sub>t</sub> ≥ −1).</li></ul>
+<div class="card"><b>Örnek-1</b> <span class="src">s.26-27</span>: Microsoft hissesi t−1'de 85$'a alınıp bir ay sonra 90$'a satılıyor, temettü yok.<br>
+Net: R<sub>t</sub> = 90/85 − 1 = <b>0.0588</b> → “Bir aylık yatırım ayda <b>%5.88</b> getiri sağlamıştır.”<br>
+Brüt: 1+R<sub>t</sub> = <b>1.0588</b> → “t−1'de 1$ yatırıldığında t ayındaki getirisi 1.0588$ olacaktır.”</div>
+
+<h3>6. Çoklu dönem (bileşik) getiri <span class="src">s.28-34</span></h3>
+<div class="f">1 + R<sub>t</sub>(2) = <span class="frac"><span>P<sub>t</sub></span><span>P<sub>t−2</sub></span></span> = <span class="frac"><span>P<sub>t</sub></span><span>P<sub>t−1</sub></span></span>·<span class="frac"><span>P<sub>t−1</sub></span><span>P<sub>t−2</sub></span></span> = (1+R<sub>t</sub>)(1+R<sub>t−1</sub>) = 1 + R<sub>t−1</sub> + R<sub>t</sub> + R<sub>t−1</sub>R<sub>t</sub></div>
+<p>İki adet bir dönemlik brüt getirinin <b>geometrik (çarpımsal) toplamıdır</b>. R<sub>t−1</sub> ile R<sub>t</sub> küçükse R<sub>t−1</sub>R<sub>t</sub> ≈ 0 ve 1+R<sub>t</sub>(2) ≈ 1 + R<sub>t−1</sub> + R<sub>t</sub>.</p>
+<div class="f">Genel (k dönem): 1 + R<sub>t</sub>(k) = <span class="frac"><span>P<sub>t</sub></span><span>P<sub>t−k</sub></span></span> = (1+R<sub>t</sub>)(1+R<sub>t−1</sub>)…(1+R<sub>t−k+1</sub>) = ∏<sub>j=0</sub><sup>k−1</sup>(1+R<sub>t−j</sub>)</div>
+<p>k-dönemli basit brüt getiri, k adet bir dönemlik brüt getirinin <b>çarpımıdır</b>; buna <b>BİLEŞİK GETİRİ</b> denir.</p>
+<div class="card"><b>Örnek-2</b> <span class="src">s.30-32</span>: P<sub>t−2</sub>=80$, P<sub>t−1</sub>=85$, P<sub>t</sub>=90$.<br>
+İki aylık net: R<sub>t</sub>(2) = 90/80 − 1 = <b>0.125</b> → “Her iki ayda bir %12.5 getiri.”<br>
+Aylık: R<sub>t</sub> = 90/85 − 1 = 0.0588; R<sub>t−1</sub> = 85/80 − 1 = 0.0625 → “Bir önceki ay %5.88, ondan önceki ay %6.25.”<br>
+Brüt: (1.0588)(1.0625) = <b>1.125</b> → “2 ay önce 1$ yatıran 2 ay sonra 1.125$'a sahip olur.”<br>
+Brüt getirilerin geometrik ortalaması: √1.125 ≈ <b>1.0607</b> (ortalama aylık ≈ %6.07).</div>
+<div class="card"><b>Getiriler simetrik değildir</b> <span class="src">s.33</span>: R<sub>t−1</sub>=0.5, R<sub>t</sub>=−0.5 → toplam 0 gibi görünür; ama gerçek iki dönemlik getiri: (1−0.5)(1+0.5) − 1 = 0.5×1.5 − 1 = <b>−0.25</b> → %25 zarar. <i>Eşit pozitif ve negatif getiri değişimi kazancı/zenginliği SİMETRİK olarak etkilemez.</i></div>
+
+<h3>7. Yıllıklandırılmış getiri & Taylor <span class="src">s.35-36</span></h3>
+<p>Getirileri karşılaştırmak için <b>zaman aralığı</b> önemlidir; bilgi yoksa <b>yıllık</b> varsayılabilir. Varlık k yıl elde tutuluyorsa:</p>
+<div class="f">Yıllıklandırılmış {R<sub>t</sub>[k]} = [ ∏<sub>j=0</sub><sup>k−1</sup>(1+R<sub>t−j</sub>) ]<sup>1/k</sup> − 1 &nbsp;=&nbsp; exp[ (1/k) Σ<sub>j=0</sub><sup>k−1</sup> ln(1+R<sub>t−j</sub>) ] − 1</div>
+<p>= k tane tek dönemlik basit brüt getirinin <b>geometrik ortalaması</b> (−1). 1. dereceden <b>Taylor genişlemesi</b> ile yaklaşık:</p>
+<div class="f">Yıllıklandırılmış {R<sub>t</sub>[k]} ≈ <span class="frac"><span>1</span><span>k</span></span> Σ<sub>j=0</sub><sup>k−1</sup> R<sub>t−j</sub></div>
+<p>Taylor genişlemesinin doğruluğu her uygulama için farklı olabilir.</p>
+
+<h3>8. Sürekli bileşik faiz <span class="src">s.37-39</span></h3>
+<p>Yıllık faiz %10, depozito 1$: yılda 1 ödeme → 1.1$; 6 ayda bir (m=2) → 1·(1+0.1/2)<sup>2</sup> = 1.1025$; genel: 1·(1+0.1/m)<sup>m</sup>.</p>
+<table><tr><th>Tür</th><th>Ödeme sayısı</th><th>Dönem faizi</th><th>Net değer</th></tr>
+<tr><td>Yıllık</td><td>1</td><td>0.1</td><td>1.10000</td></tr><tr><td>6 aylık</td><td>2</td><td>0.05</td><td>1.10250</td></tr>
+<tr><td>Çeyreklik</td><td>4</td><td>0.025</td><td>1.10381</td></tr><tr><td>Aylık</td><td>12</td><td>0.0083</td><td>1.10471</td></tr>
+<tr><td>Haftalık</td><td>52</td><td>0.1/52</td><td>1.10506</td></tr><tr><td>Günlük</td><td>365</td><td>0.1/365</td><td>1.10516</td></tr>
+<tr><td><b>Sürekli</b></td><td>∞</td><td></td><td><b>1.10517</b></td></tr></table>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Tablosu (Table 1.1): Bileşik Faiz Sıklığının Net Değere Etkisi</span><span class="src">Ders 2 · s.38</span></div>
+  <div class="fig-img-wrap"><img src="img/d2_38.png" alt="Table 1.1 Compounding Frequencies"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Number of Payments (m):</b> 1'den ∞'a (Continuously) artış</span>
+    <span class="fig-tag"><b>Net Value Sütunu:</b> $1.10000 → $1.10517 (Asimptotik üst sınır: e<sup>0.1</sup>)</span>
+  </div>
+  <div class="fig-exp">
+    <b>Görsel Açıklaması:</b> Yıllık %10 faiz oranıyla (r = 0.10) yatırılan 1$'ın ödeme sıklığı (m) arttıkça dönem sonu net değeri artar ancak sonsuza gitmez; <b>Sürekli bileşik faizde (Continuously, m → ∞)</b> <code>1 × e<sup>0.1</sup> = 1.10517$</code> değerine yakınsar. (Slayt metnindeki 1.052$ yazım hatasıdır, tablodaki <b>1.10517$</b> doğrudur.)
+  </div>
+</div>
+<div class="f">A = C·exp(r × n) &nbsp;&nbsp;&nbsp; (C: sermaye, r: yıllık faiz oranı, n: yıl sayısı) &nbsp;&nbsp;&nbsp;&nbsp; Bugünkü değer: C = A·exp(−r × n)</div>
+
+<h3>9. Sürekli bileşik (log) getiri <span class="src">s.40</span></h3>
+<p>Basit brüt getirinin <b>doğal logaritması</b> = sürekli bileşik getiri = <b>log getiri</b>.</p>
+<div class="f">r<sub>t</sub> = ln(1+R<sub>t</sub>) = ln<span class="frac"><span>P<sub>t</sub></span><span>P<sub>t−1</sub></span></span> = p<sub>t</sub> − p<sub>t−1</sub>, &nbsp; p<sub>t</sub> = ln(P<sub>t</sub>)</div>
+<div class="f">r<sub>t</sub>[k] = ln(1+R<sub>t</sub>[k]) = ln(1+R<sub>t</sub>) + … + ln(1+R<sub>t−k+1</sub>) = r<sub>t</sub> + r<sub>t−1</sub> + … + r<sub>t−k+1</sub></div>
+<p>Çok dönemli log getiri, bir dönemlik log getirilerin <b>toplamıdır</b>. Log getirinin istatistiksel özellikleri <b>daha uysaldır (tractable)</b>.</p>
+
+<h3>10. Portföy, temettü, aşırı getiri, arbitraj <span class="src">s.41-44</span></h3>
+<p><b>Portföy:</b> Varlıkların aynı/farklı özellikte birden fazla kıymete yatırılması sonucu oluşan toplam değer. N varlıklı portföyün basit net getirisi, varlıkların basit net getirilerinin <b>ağırlıklı ortalamasıdır</b> (ağırlık = varlığın portföydeki yüzdesi):</p>
+<div class="f">R<sub>p,t</sub> = Σ<sub>i=1</sub><sup>N</sup> w<sub>i</sub>R<sub>it</sub></div>
+<p><b>Temettü ödeniyorsa:</b></p>
+<div class="f">R<sub>t</sub> = <span class="frac"><span>P<sub>t</sub> + D<sub>t</sub></span><span>P<sub>t−1</sub></span></span> − 1 &nbsp;&nbsp;&nbsp; r<sub>t</sub> = ln(P<sub>t</sub> + D<sub>t</sub>) − ln(P<sub>t−1</sub>)</div>
+<p><b>Aşırı getiri:</b> varlığın getirisi ile bir <b>referans varlığın</b> (genellikle risksiz, ör. hazine bonosu) getirisi arasındaki fark.</p>
+<div class="f">Basit aşırı getiri: Z<sub>t</sub> = R<sub>t</sub> − R<sub>0t</sub> &nbsp;&nbsp;&nbsp; Log aşırı getiri: z<sub>t</sub> = r<sub>t</sub> − r<sub>0t</sub></div>
+<p>Finans literatüründe aşırı getiri; net ilk yatırımı olmayan referans varlığın kısa, net ilk yatırımı olan varlığın uzun pozisyonda olduğu portföyün <b>arbitraj ödemesi</b> olarak düşünülebilir.</p>
+<p><b>Arbitraj:</b> Risksiz kâr etmek için farklı piyasalardaki dengesizlikten faydalanma. Bir piyasadan düşük fiyata alınan ürün başka piyasada eş zamanlı yüksek fiyata satılır. Piyasa dengesini bozan arbitraj işlemi, <b>işleyen piyasalarda yapılmaz</b>.</p>
+
+<h3>11. Özet <span class="src">s.45-46</span></h3>
+<div class="f">r<sub>t</sub> = ln(1+R<sub>t</sub>) &nbsp;⇔&nbsp; R<sub>t</sub> = e<sup>r<sub>t</sub></sup> − 1 &nbsp;&nbsp;&nbsp;&nbsp; Yüzde: r<sub>t</sub> = 100·ln(1 + R<sub>t</sub>/100), &nbsp; R<sub>t</sub> = 100(e<sup>r<sub>t</sub>/100</sup> − 1)</div>
+<div class="card"><b>Örnek-3</b>: Aylık log getiri %4.46 → basit getiri = 100[exp(4.46/100) − 1] = <b>%4.56</b>.<br>
+3 aylık log getiriler %4.46, %−7.34, %10.77 → çeyreklik log getiri = 4.46 − 7.34 + 10.77 = <b>%7.89</b> (log getiriler toplanır).</div>
+<div class="box exam">Hesap sorusu kesin gibi: basit net/brüt, çok dönemli, log getiri, log↔basit dönüşümü, simetri örneği (−0.25), sürekli bileşik faiz A=C·e<sup>rn</sup>.</div>
+<div class="done-btn"><button class="primary" data-done="d2">✓ Bu bölümü bitirdim</button></div>
+</section>
+
+<!-- ================= DERS 3 ================= -->
+<section id="d3">
+<h2>Ders 3 · Temel Veri Analizi ve Getiri Dağılımları</h2>
+<h3>1. Veri tabanı incelenirken sorulacaklar <span class="src">s.2</span></h3>
+<p>Trend mi? Ortalamaya dönüş mü? Oynaklık kümelemesi mi? Aykırı gözlem var mı? Dönüm noktaları var mı? Rejim değişiklikleri (yapısal kırılmalar) var mı?</p>
+<h3>2. Özet istatistikler (x<sub>1</sub>,…,x<sub>T</sub>) <span class="src">s.3-5</span></h3>
+<p>Gözlem sayısı, kayıp gözlem, ortalama, ortanca, mod, varyans, standart sapma, min/maks, çarpıklık, basıklık.</p>
+<div class="f">μ̂<sub>x</sub> = <span class="frac"><span>1</span><span>T</span></span>Σ<sub>t=1</sub><sup>T</sup>x<sub>t</sub> &nbsp;&nbsp;&nbsp; σ̂<sub>x</sub><sup>2</sup> = <span class="frac"><span>1</span><span>T−1</span></span>Σ<sub>t=1</sub><sup>T</sup>(x<sub>t</sub> − μ̂<sub>x</sub>)<sup>2</sup></div>
+<div class="f">Ŝ(x) = <span class="frac"><span>1</span><span>(T−1)σ̂<sub>x</sub><sup>3</sup></span></span>Σ(x<sub>t</sub> − μ̂<sub>x</sub>)<sup>3</sup> &nbsp;&nbsp;&nbsp; K̂(x) = <span class="frac"><span>1</span><span>(T−1)σ̂<sub>x</sub><sup>4</sup></span></span>Σ(x<sub>t</sub> − μ̂<sub>x</sub>)<sup>4</sup></div>
+<h3>3. Değişkenler arası ilişki <span class="src">s.6</span></h3>
+<p><b>İşlem hacmi, oynaklığa pozitif yönlü ve kuvvetli olarak bağımlıdır.</b> İlişki incelemek için: çapraz çizim (cross-plot), çoklu zaman serisi grafiği, korelasyon (kovaryans).</p>
+<h3>4. Temel veri manipülasyonları <span class="src">s.7</span></h3>
+<p>Doğal logaritma almak (ln) · Getiri hesaplamak · Mevsimsel uyarlama · Ortalamadan farkını almak (de-meaning) · Trend bileşeninden arındırmak (de-trending) · Gecikme (lagging) veya ileri zaman (leading).</p>
+<h3>5. Dönem içi / dönem dışı kestirim / öngörü <span class="src">s.8-10</span></h3>
+<table><tr><th>Dönem</th><th>Y<sub>t</sub></th><th>Kestirim adı</th></tr>
+<tr><td>2010, 2011</td><td>(veri yok, geçmiş)</td><td>Dönem Öncesi Kestirim (DÖK)</td></tr>
+<tr><td>2012–2016</td><td>58845 … 73257 (modelin kurulduğu veri)</td><td>Dönem İçi Kestirim (DİK)</td></tr>
+<tr><td>2017, 2018</td><td>74248, 78070 (var ama modele katılmayan)</td><td>Dönem Dışı Kestirim (DDK)</td></tr>
+<tr><td>2019, 2020</td><td>(veri yok, gelecek)</td><td>Öngörü</td></tr></table>
+<p>R'de: <code>ornek1&lt;-ts(c(58845,59675,63215,69402,73257),start=2012)</code>, <code>plot.ts(ornek1)</code>. Örnek-2: 1999:I–2001:II çeyreklik veri.</p>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği (Örnek-1): Dönem İçi Kestirim Verisinin R Zaman Serisi Grafiği</span><span class="src">Ders 3 · s.9</span></div>
+  <div class="fig-img-wrap"><img src="img/d3_09.png" alt="Örnek-1 R plot.ts"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Yatay Eksen (Time):</b> 2012–2016 yılları (Dönem İçi Kestirim aralığı)</span>
+    <span class="fig-tag"><b>Dikey Eksen (ornek1):</b> 58.845'ten 73.257'ye yükselen seri</span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> R'de <code>ts(..., start=2012)</code> komutuyla yıllık zaman serisi nesnesi oluşturulmuş ve <code>plot.ts(ornek1)</code> ile çizdirilmiştir. Modelin kurulduğu 2012–2016 aralığı <b>Dönem İçi Kestirim (DİK)</b> dönemidir; grafikte bu dönemde belirgin bir artış eğilimi (trend) görülmektedir.
+  </div>
+</div>
+
+<h3>6. Getirilerin dağılımı ve slayt grafikleri <span class="src">s.11-18</span></h3>
+<h4>a) Normal dağılım varsayımı: R<sub>it</sub> ~ i.i.d. N(μ, σ²)</h4>
+<p>İstatistiksel özellikleri kolay takip edilir; fakat sorunları:</p>
+<ul><li>Normal dağılımın alt-üst sınırları <b>sonsuz</b>; getirinin alt değeri ise <b>−1</b>.</li>
+<li>R<sub>it</sub> normal dağılsa bile çok periyotlu R<sub>it</sub>[k] <b>normal dağılmaz</b>, çünkü <b>çarpımlardan</b> oluşur.</li>
+<li>Normalin <b>simetriklik</b> varsayımı, ampirik getirilerin <b>sağa çarpık</b> olmasıyla çakışır.</li></ul>
+<h4>b) Lognormal dağılım: R<sub>t</sub> ~ i.i.d. LogNormal(μ, σ²)</h4>
+<div class="f">E(R<sub>t</sub>) = exp(μ + σ²/2) − 1 &nbsp;&nbsp;&nbsp; Var(R<sub>t</sub>) = exp(2μ + σ²)[exp(σ²) − 1]</div>
+<p>Normal yerine lognormal varsayımı <b>daha gerçekçi ve kullanışlıdır</b>. R<sub>t</sub>'nin ortalaması m<sub>1</sub>, varyansı m<sub>2</sub> ise:</p>
+<div class="f">E(r<sub>t</sub>) = ln<span class="frac"><span>m<sub>1</sub> + 1</span><span>√(1 + m<sub>2</sub>/(1+m<sub>1</sub>)²)</span></span> &nbsp;&nbsp;&nbsp; Var(r<sub>t</sub>) = ln(1 + <span class="frac"><span>m<sub>2</sub></span><span>(1+m<sub>1</sub>)²</span></span>)</div>
+<ul><li>iid normal değişkenlerin sonlu toplamı normal olduğundan {r<sub>t</sub>} normalse <b>r<sub>t</sub>[k] de normal</b>dir.</li>
+<li>r<sub>t</sub>'nin alt sınır problemi yoktur; R<sub>t</sub>'nin alt sınırı da 1+R<sub>t</sub> = exp(r<sub>t</sub>) ile sağlanır.</li>
+<li>Birçok borsa verisi sağa çarpık olsa da <b>tüm borsa verileri lognormale her zaman uymaz</b>.</li></ul>
+<h4>c) Kararlı (stable) dağılım</h4>
+<p>İki bağımsız rastgele değişkenin doğrusal birleşimi, konum ve ölçek parametrelerine kadar <b>aynı dağılıma</b> sahipse dağılım <b>kararlı</b>dır. Normal dağılımın genelleştirilmesidir; sağa çarpıklığı yansıtabilir. <b>Ancak normal-olmayan kararlı dağılımlarda sonlu varyans YOKTUR.</b> Örnek: <b>Cauchy</b> – medyan etrafında simetrik ama sonsuz varyanslı.</p>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği: Normal Çan Eğrisi (Bell Curve) vs. Cauchy Dağılımı</span><span class="src">Ders 3 · s.15</span></div>
+  <div class="fig-img-wrap"><img src="img/d3_15.png" alt="Bell Curve vs Cauchy Distribution"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Mavi Eğri (Bell / Normal):</b> Omuzları geniş, kuyrukları ±3σ'dan sonra hızla sıfıra yapışıyor</span>
+    <span class="fig-tag"><b>Kırmızı Eğri (Cauchy):</b> Merkezde sivri, uçlarda (±3, ±4, ±5) mavi eğrinin üstünde kalan <b>kalın kuyruklar</b></span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> Cauchy dağılımı (kırmızı) medyan (0) etrafında tıpkı normal dağılım gibi simetriktir; ancak uçlarda (±3, ±4, ±5 standart sapma bölgelerinde) olasılık yoğunluğu normal dağılıma göre çok daha yüksektir (<b>kalın kuyruk / heavy tail</b>). Kuyruklar sıfıra çok yavaş yaklaştığı için <b>Cauchy dağılımının varyansı sonsuzdur</b>.
+  </div>
+</div>
+
+<h4>d) Normal dağılımın ölçek karışımı / sonlu karışımı</h4>
+<p>Son çalışmalar borsa getirilerinin bu dağılıma yakın olduğunu göstermektedir.</p>
+<div class="f">r<sub>t</sub> ~ (1−X)·N(μ, σ<sub>1</sub>²) + X·N(μ, σ<sub>2</sub>²), &nbsp; X: Bernoulli rastgele değişkeni</div>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Grafiği (Figure 1.1): Normal, Karışım (Mixture) ve Cauchy Karşılaştırması</span><span class="src">Ders 3 · s.17</span></div>
+    <div class="fig-img-wrap"><img src="img/d3_17.png" alt="Normal Mixture Cauchy"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Normal:</b> En üst tepe, ince kuyruk</span>
+      <span class="fig-tag"><b>Mixture (Sonlu Karışım):</b> Sonlu varyanslı ama kalın kuyruklu</span>
+      <span class="fig-tag"><b>Cauchy:</b> En alçak tepe, en kalın kuyruk (sonsuz varyans)</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması (Figure 1.1):</b> Standart normal, sonlu karışım (<i>finite mixture</i>) ve kararlı (<i>Cauchy</i>) yoğunluk fonksiyonlarının karşılaştırması. <b>Mixture</b> dağılımı hem sonlu varyansı korur hem de finansal getirilerdeki uç değerleri (kalın kuyrukları) normal dağılımdan daha iyi yakalar.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Grafiği (Figure 1.4): IBM Basit Getiri vs. Log-Getiri Yoğunlukları</span><span class="src">Ders 3 · s.18</span></div>
+    <div class="fig-img-wrap"><img src="img/d3_18.png" alt="IBM Simple vs Log Return"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Düz Çizgi:</b> Gerçek (ampirik) IBM getiri yoğunluğu</span>
+      <span class="fig-tag"><b>Kesikli Çizgi:</b> Aynı ortalama ve std. sapmalı Normal yoğunluk</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması (Figure 1.4):</b> IBM hissesinin (Ocak 1926–Aralık 2003) aylık basit getiri (sol) ve log-getiri (sağ) dağılımları. Her iki grafikte de gerçek getiri dağılımının (düz çizgi) tepe noktası normal dağılımdan (kesikli çizgi) <b>daha sivri (yüksek basıklık / leptokurtik)</b> ve kuyrukları <b>daha kalındır</b>.
+    </div>
+  </div>
+</div>
+
+<h3>7. Varsayım kontrolleri ve R uygulama görselleri <span class="src">s.19-31</span></h3>
+<p>Normallik varsayımı · Değişen varyanslılık varsayımı · Otokorelasyon testi (<b>Durbin-Watson</b>).</p>
+<p>Normallik altında Ŝ(x) ve K̂(x)−3, asimptotik olarak varyansı sırasıyla <b>6/T</b> ve <b>24/T</b> olan normal dağılıma sahiptir.</p>
+<div class="grid2">
+<div class="card"><b>Simetriklik (çarpıklık) testi</b><br>H<sub>0</sub>: S(r)=0 (simetrik) — H<sub>a</sub>: S(r)≠0
+<div class="f">S* = <span class="frac"><span>Ŝ(x)</span><span>√(6/T)</span></span> ~ N(0,1)</div>
+|S*| &gt; Z<sub>α/2</sub> veya p &lt; α ⇒ H<sub>0</sub> red (simetrik değil).</div>
+<div class="card"><b>Kalın kuyruk (basıklık) testi</b><br>H<sub>0</sub>: K(r)−3=0 (normal kuyruklu) — H<sub>a</sub>: K(r)−3≠0
+<div class="f">K* = <span class="frac"><span>K̂(x) − 3</span><span>√(24/T)</span></span> ~ N(0,1)</div>
+|K*| &gt; Z<sub>α/2</sub> veya p &lt; α ⇒ H<sub>0</sub> red (kalın kuyruk).</div></div>
+<h4>Jarque–Bera testi ve Q-Q Plot</h4>
+<p>Jarque ve Bera (1987) iki testi birleştirir:</p>
+<div class="f">JB = (K*)² + (S*)² ~ χ²<sub>2</sub></div>
+<p>H<sub>0</sub>: Veriler normal kitleden gelmektedir. JB &gt; χ²<sub>2</sub>(α) veya p &lt; α ⇒ H<sub>0</sub> reddet. Diğer normallik testleri: <b>Kolmogorov-Smirnov</b>, <b>Shapiro-Wilk</b>.</p>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği: Normallik Kontrolü — Q-Q Plot</span><span class="src">Ders 3 · s.31</span></div>
+  <div class="fig-img-wrap"><img src="img/d3_31.png" alt="Q-Q Plot Normallik Kontrolü"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Yatay Eksen (Ordered Data):</b> Küçükten büyüğe sıralanmış gözlemler</span>
+    <span class="fig-tag"><b>Dikey Eksen (Quantiles):</b> Teorik dağılımın kantilleri</span>
+    <span class="fig-tag"><b>45° Referans Doğrusu:</b> Noktalar doğru üzerindeyse H<sub>0</sub> reddedilemez</span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> Q-Q plotta <b>H<sub>0</sub>: Kitle, ilgilenilen dağılıma sahiptir</b> hipotezi sınanır. Her dağılım için Q-Q plot testi mevcuttur. Grafikte siyah noktalar (sıralı veri, kantil ikilileri) 45°'lik düz doğru üzerinde veya çok yakınında dizilmiştir; bu durumda <b>H<sub>0</sub> reddedilemez</b> ve kitlenin ilgili dağılımdan geldiği kabul edilir.
+  </div>
+</div>
+
+<h4>Slayttaki R Çıktı Görselleri (Örnek 3, 4, 5, 6) <span class="src">Ders3 s.22-30</span></h4>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Örnek-3: Çarpıklık (Simetri) Testi</span><span class="src">Ders 3 · s.22</span></div>
+    <div class="fig-img-wrap"><img src="img/d3_22.png" alt="Örnek 3 Çarpıklık"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>tst = −1.237977</b></span>
+      <span class="fig-tag"><b>Kırmızı Daire (pv):</b> 0.2157246 &gt; 0.05</span>
+    </div>
+    <div class="fig-exp">
+      <b>Slayt Yorumu:</b> <code>tst = s3/sqrt(6/T) = -1.238</code> ve çift yönlü p-değeri <b>0.2157 &gt; 0.05</b> olduğu için <b>H<sub>0</sub> reddedilemez</b>; <code>r<sub>t</sub></code> serisi <b>simetrik</b> bir dağılıma sahiptir.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Örnek-4: Basıklık (Kalın Kuyruk) Testi</span><span class="src">Ders 3 · s.24</span></div>
+    <div class="fig-img-wrap"><img src="img/d3_24.png" alt="Örnek 4 Basıklık"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>tst = k4/sqrt(24/T) = 7.743311</b></span>
+      <span class="fig-tag"><b>Karar:</b> |7.74| &gt; 1.96 ⇒ H<sub>0</sub> Red!</span>
+    </div>
+    <div class="fig-exp">
+      <b>Slayt (“Sonucu yorumlayınız...”):</b> Test istatistiği <b>7.743311 &gt; Z<sub>0.025</sub>=1.96</b> (p ≈ 0 &lt; 0.05) olduğundan H<sub>0</sub>: K(r)−3=0 <b>reddedilir</b>. Seri normal kuyruklu değildir, <b>kalın kuyrukludur (leptokurtik)</b>.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Örnek-5: Log-Getiri Sıfır Ortalama t-Testi</span><span class="src">Ders 3 · s.26</span></div>
+    <div class="fig-img-wrap"><img src="img/d3_26.png" alt="Örnek 5 t-test"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>t = 1.9181, df = 501</b></span>
+      <span class="fig-tag"><b>Kırmızı Daire (p-value):</b> 0.05567 &gt; 0.05</span>
+    </div>
+    <div class="fig-exp">
+      <b>Slayt Yorumu:</b> <code>t.test(rt)</code> sonucunda p-değeri <b>0.05567 &gt; 0.05</b> olduğundan <b>H<sub>0</sub> reddedilemez</b>. Log-getirinin ortalaması istatistiksel olarak <b>sıfırdır</b> (%95 güven aralığı −0.00015 ile +0.01257 olup 0'ı içerir).
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Örnek-6: Jarque-Bera Normallik Testi</span><span class="src">Ders 3 · s.30</span></div>
+    <div class="fig-img-wrap"><img src="img/d3_30.png" alt="Örnek 6 Jarque Bera"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>X-squared = 62.8363</b></span>
+      <span class="fig-tag"><b>Daire İçi (p Value):</b> 2.265e-14 &lt; 0.05</span>
+    </div>
+    <div class="fig-exp">
+      <b>Slayt & Tuzak Notu:</b> <code>JB = (−1.238)² + (7.743)² ≈ 62.84</code>, <b>p = 2.265e-14 &lt; 0.05</b>. Ders 3 s.29 kuralına göre p &lt; α olduğunda H<sub>0</sub> reddedilir (seri <b>normal değildir</b>; kalın kuyruk nedeniyle normallik bozulmuştur). Slayt altındaki cümlede sehven “normal dağılan kitleden gelmektedir” yazılmıştır (bkz. Tuzaklar #2).
+    </div>
+  </div>
+</div>
+<div class="box exam">Test istatistiği formülleri (6/T, 24/T), JB ~ χ²<sub>2</sub>, H<sub>0</sub>'lar ve “p-değeri ile karar” mutlaka sorulur. Örnek-4'ü yorumlamayı bil!</div>
+<div class="done-btn"><button class="primary" data-done="d3">✓ Bu bölümü bitirdim</button></div>
+</section>
+
+<!-- ================= DERS 4 ================= -->
+<section id="d4">
+<h2>Ders 4 · Temel Zaman Serisi Kavramları ve Bileşenler</h2>
+<h3>1. Zaman serisi nedir? <span class="src">s.2-3</span></h3>
+<p>Stokastik bir süreç olan zaman serisi, <b>iç bağımlılığı olan rastgele değişkenin</b> zaman aralıklarıyla aldığı değerlerin ardı ardına sıralanmasıyla meydana gelen seridir: <span class="m">{Y<sub>t</sub>, t ∈ T}</span> — Y<sub>t</sub>: rastgele değişken, T: sürecin belirlendiği zaman noktaları kümesi, t: her bir zaman noktası.</p>
+<p>Stokastik süreç olarak zaman serisi rastgele değişkenler topluluğundan oluşur: {…, Y<sub>−1</sub>, Y<sub>0</sub>, Y<sub>1</sub>, …, Y<sub>T</sub>, …} = {Y<sub>t</sub>}<sub>−∞</sub><sup>∞</sup>. <b>{y<sub>1</sub>, y<sub>2</sub>, …, y<sub>T</sub>}</b> ise <b>gözlenen</b> zaman serisi değerleridir (<i>realization of time series</i>). Her zaman noktasındaki değer bir rassal değişkendir.</p>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği: Gözlenen Zaman Serisi (Realization) ve Rassal Değişkenler (r.d.)</span><span class="src">Ders 4 · s.3</span></div>
+  <div class="fig-img-wrap"><img src="img/d4_03.png" alt="Zaman Serisi Gerçekleşmesi"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Yatay Eksen (Zaman):</b> t = 1, 2, 3, ..., T anları</span>
+    <span class="fig-tag"><b>Her t Noktasındaki Mavi Nokta (r.d.):</b> O zamandaki rastgele değişkenin gerçekleşen değeri (y<sub>t</sub>)</span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> Grafik üzerinde her <code>t = 1, 2, 3, ..., T</code> zaman noktasından yukarı çıkan dikey kesikli çizginin ucundaki nokta bir <b>rastgele değişkendir (r.d.)</b>. Bu noktaların zaman sırasıyla birleştirilmesiyle elde edilen <code>{y<sub>1</sub>, y<sub>2</sub>, ..., y<sub>T</sub>}</code> yörüngesi, stokastik sürecin gözlenen tek bir gerçekleşmesidir (<i>realization of time series</i>).
+  </div>
+</div>
+
+<h3>2. Gecikme (lag) <span class="src">s.4-6</span></h3>
+<p>Zaman serisi değişkeninin zaman orijininin k adım geriye veya ileriye kaydırılmasıyla elde edilir. t anındaki değerin k adım sonrası <b>t+k</b>, k adım öncesi <b>t−k</b>. Zaman ekseni k eşit aralığa bölünür; böylece k zaman birimi ile ayrılan değişkenler arasındaki ilişkinin <b>yönü ve gücü</b> incelenir.</p>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Şeması: Zaman Ekseninde Gecikme (t−k, t, t+k)</span><span class="src">Ders 4 · s.4</span></div>
+    <div class="fig-img-wrap"><img src="img/d4_04.png" alt="Gecikmeli Değer Şeması"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>t:</b> Başlangıç zamanı (bugün)</span>
+      <span class="fig-tag"><b>t−k:</b> k adım geçmiş</span>
+      <span class="fig-tag"><b>t+k:</b> k adım gelecek</span>
+    </div>
+    <div class="fig-exp">
+      <b>Şema Açıklaması:</b> Zaman ekseninde başlangıç anı <code>t</code> merkez alındığında, sola doğru <code>t−1, t−2, ..., t−k</code> geçmiş dönem gecikmelerini (lag); sağa doğru <code>t+1, t+2, ..., t+k</code> ise ileri dönem (lead) zaman noktalarını gösterir.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Tablosu: Gecikmeli Seriler ve Gözlem Kaybı (*)</span><span class="src">Ders 4 · s.5</span></div>
+    <div class="fig-img-wrap"><img src="img/d4_05.png" alt="Gecikmeli Zaman Serisi Tablosu"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Y<sub>t</sub> (k=0):</b> Orijinal seri (6, 5, 7, 8, 9...)</span>
+      <span class="fig-tag"><b>Yıldız (*) İşaretleri:</b> Gecikme nedeniyle kaybolan gözlemler</span>
+    </div>
+    <div class="fig-exp">
+      <b>Tablo Açıklaması:</b> Seri <code>k=1</code> adım geciktirildiğinde (<code>Y<sub>t−1</sub></code>) ilk satır <code>*</code> olur (1 gözlem kaybolur); <code>k=2</code> adımda (<code>Y<sub>t−2</sub></code>) ilk iki satır <code>*</code> olur. Gecikme sayısı arttıkça serbestlik derecesi azalır; bu yüzden <b>k en fazla T−2</b> değerini alabilir.
+    </div>
+  </div>
+</div>
+<table><tr><th>Y<sub>t−2</sub></th><th>Y<sub>t−1</sub></th><th>Y<sub>t</sub> (k=0)</th><th>Y<sub>t+1</sub></th><th>Y<sub>t+2</sub></th></tr>
+<tr><td>*</td><td>*</td><td>6</td><td>5</td><td>7</td></tr><tr><td>*</td><td>6</td><td>5</td><td>7</td><td>8</td></tr>
+<tr><td>6</td><td>5</td><td>7</td><td>8</td><td>9</td></tr><tr><td>5</td><td>7</td><td>8</td><td>9</td><td>9</td></tr></table>
+<p>k çok büyük seçilmedikçe gecikmeli seriler (k=1,2,…) orijinal seriyle (k=0) <b>aynı sistematik yapıdadır</b>; Y<sub>t</sub>'de mevsimsellik varsa gecikmelilerde de olur. k, gözlem sayısına bağlıdır; en fazla <b>T−2</b> değerini alabilir.</p>
+
+<h3>3. Zaman serisi dönemleri <span class="src">s.7-8</span></h3>
+<ul><li><b>Bugünkü dönem</b>: En son gözlemin ait olduğu zaman noktası t; Y<sub>t</sub>.</li>
+<li><b>Geçmiş dönem</b>: Olayın t'ye kadarki tarihsel gelişimi; Y<sub>t−1</sub>, Y<sub>t−2</sub>,… (Y<sub>t</sub> Çarşamba ise Y<sub>t−1</sub> Salı, Y<sub>t−2</sub> Pazartesi).</li>
+<li><b>Gelecek dönem – Öngörü</b>: Geleceğe ait öngörülerin yapıldığı dönem; Y<sub>t+1</sub>, Y<sub>t+2</sub>,… (Y<sub>t</sub> Haziran ise Y<sub>t+1</sub> Temmuz, Y<sub>t+2</sub> Ağustos).</li></ul>
+<h3>4. Çözümlemenin amacı <span class="src">s.9</span></h3>
+<ol><li><b>Ardışık gözlemlerden oluşan olayların doğasını tanımak</b>: rastgele değişmelerin yanında hangi bileşenlerin etkili olduğunu belirlemek; serinin özelliklerini açıklamak.</li>
+<li><b>Gelecek değerleri öngörmek</b>: gözlemler arasında <b>iç bağımlılık (otokorelasyon)</b> olması ve değişmelere neden olan etkilerin gelecekte de aynı şekilde devam edeceği varsayımıyla öngörü elde etmek.</li></ol>
+<h3>5. Araştırmacının kararları <span class="src">s.10</span></h3>
+<ul><li>En uygun öngörü periyodu / <b>zaman dilimi</b> (saniye, gün, hafta, ay, çeyrek, yıl)</li>
+<li>Toplanacak toplam veri sayısı – <b>ideal zaman aralığı</b></li>
+<li><b>Öngörü dönemi</b> (forecasting horizon, forecast lead time) araştırmanın başında belirlenmeli.</li></ul>
+<h3>6. Öngörü horizonu (Forecasting Horizon) <span class="src">s.11</span></h3>
+<table><tr><th>Yakın dönem</th><th>Kısa dönem</th><th>Orta dönem</th><th>Uzun dönem</th></tr>
+<tr><td>t &lt; 10 zd</td><td>10 &lt; t &lt; 30 zd</td><td>30 &lt; t &lt; 90 zd</td><td>t &gt; 90 zd (slaytta “&lt;” yazılmış)</td></tr></table>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği: Öngörü Ufku (Forecast Horizon) ve Öngörü Aralıkları</span><span class="src">Ders 4 · s.11</span></div>
+  <div class="fig-img-wrap"><img src="img/d4_11.png" alt="Forecast Horizon"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Sol Bölge (Past time-series):</b> Gözlenen geçmiş seri</span>
+    <span class="fig-tag"><b>Dikey Çizgi (Forecast start):</b> Öngörü başlangıç anı (t)</span>
+    <span class="fig-tag"><b>Sağ Bölge (Forecast horizon):</b> Nokta öngörüler (Forecasts) ve genişleyen güven/öngörü bandı (Prediction intervals)</span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> Dikey çizginin sol tarafı gerçekleşmiş geçmiş veriyi (<i>Past time-series</i>), sağ tarafı ise <b>öngörü ufkunu (Forecast horizon)</b> gösterir. Geleceğe doğru adım sayısı arttıkça belirsizlik büyüdüğü için <b>öngörü aralıkları (Prediction intervals - pembe gölgeli bant)</b> huni şeklinde gittikçe genişlemektedir.
+  </div>
+</div>
+
+<h3>7. Sistematik yapı + rassal gürültü <span class="src">s.12</span></h3>
+<div class="f">Y<sub>t</sub> = f(t) + ε<sub>t</sub> &nbsp;&nbsp; (Sistematik Yapı + Rassal Gürültü)</div>
+<p>Sistematik yapı: genellikle tanımlanabilen bileşenlerden oluşan yapı. Rassal gürültü: sistemin yapısının belirlenmesini zorlaştıran yapı (hata). Çoğu teknikte sistematik yapıyı iyi tanımlamak için sistem <b>gürültüden arındırılmaya</b> çalışılır.</p>
+
+<h3>8. Zaman serisi bileşenleri ve slayt grafikleri <span class="src">s.13-26</span></h3>
+<p>Dört bileşen: <b>Trend · Mevsimsellik · Döngüsellik · Düzensiz hareketler</b>.</p>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Şeması: Zaman Serisinin 4 Temel Bileşeni</span><span class="src">Ders 4 · s.13</span></div>
+  <div class="fig-img-wrap"><img src="img/d4_13.png" alt="Zaman Serisi 4 Bileşeni"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-exp">
+    <b>Şema Açıklaması:</b> Bir zaman serisinin sistematik ve rassal yapısı dört ana bileşene ayrılır: <b>Trend bileşeni</b>, <b>Döngüsellik bileşeni</b>, <b>Mevsimsellik bileşeni</b> ve <b>Düzensiz hareketler</b>.
+  </div>
+</div>
+
+<h4>a) Trend Bileşeni ve 6 Trend Modeli Grafiği <span class="src">Ders4 s.14-15</span></h4>
+<p>Değişkenin <b>uzun dönemde</b> artış veya azalış eğilimi. Uzun dönem genellikle <b>7 yıl veya daha fazla</b>.</p>
+<ul><li><b>Doğrusal trend</b>: uzun dönemde <b>sabit değişim oranı</b> ile artma/azalma.</li>
+<li><b>Doğrusal olmayan trend</b>: değişim miktarının zamanla arttığı/azaldığı; değişim oranının sabit olmadığı trend.</li></ul>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği: 6 Farklı Trend Kalıbı (Doğrusal, Karesel, Üssel) ve Denklemleri</span><span class="src">Ders 4 · s.15</span></div>
+  <div class="fig-img-wrap"><img src="img/d4_15.png" alt="6 Trend Kalıbı"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Kırmızı Dalgalı Çizgi:</b> Gözlenen zaman serisi Y(t)</span>
+    <span class="fig-tag"><b>Mavi Düz/Eğri Çizgi:</b> Serinin içindeki deterministik Trend eğrisi</span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> Slaytta 6 temel trend formu mavi referans eğrileri ve denklemleriyle birlikte gösterilmiştir:
+    <ul>
+      <li><b>Sol Sütun (Doğrusal Trendler):</b> Sabit eğimle yükselen <code>Y(t) = β<sub>0</sub> + β<sub>1</sub>t + ε</code> (Doğrusal Artan) ve sabit eğimle düşen <code>Y(t) = β<sub>0</sub> − β<sub>1</sub>t + ε</code> (Doğrusal Azalan).</li>
+      <li><b>Orta-Üst ve Sağ-Üst (Karesel Trendler):</b> Parabolik (eğrisel) artan <code>Y(t) = β<sub>0</sub> + β<sub>1</sub>t + β<sub>2</sub>t² + ε</code> ve parabolik azalan <code>Y(t) = β<sub>0</sub> − β<sub>1</sub>t − β<sub>2</sub>t² + ε</code>.</li>
+      <li><b>Orta-Alt ve Sağ-Alt (Üssel Trendler):</b> Hızla azalan <code>Y(t) = (e<sup>β<sub>0</sub>−β<sub>1</sub>t</sup>)ε</code> (Üssel Azalan) ve ivmelenerek artan <code>Y(t) = (e<sup>β<sub>0</sub>+β<sub>1</sub>t</sup>)ε</code> (Üssel Artan).</li>
+    </ul>
+  </div>
+</div>
+
+<h4>b) Mevsimsel Bileşen ve Dalga Analizi Grafiği <span class="src">Ders4 s.16-17</span></h4>
+<ul><li>Değerler belirli periyotlarda tekrarlanıyorsa seri mevsimsel etki altındadır; tekrarlı, periyodik yapı içerir.</li>
+<li>Tekrarlı yapı: eşit aralıklarda ve aynı zaman dilimlerinde benzer davranış gösteren sabit salınımlar.</li>
+<li>Genellikle <b>hava şartları</b> veya <b>müşteri tercihleri</b> gibi etkenlerden doğar.</li>
+<li>En kısa tekrarlanan periyottur; bir mevsimsel dalga <b>en fazla bir yıl</b> içinde tamamlanır.</li>
+<li><b>Aylık veya çeyreklik</b> dilimlerde incelenir. <b>Yıllık veri mevsimselliği göstermez.</b></li>
+<li>Serinin <b>durağanlığını bozar</b>.</li>
+<li>Dalga analizi: <b>dalga uzunluğu (L)</b> ve <b>dalga şiddeti</b>.</li></ul>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği: Mevsimsel Bileşen — Dalga Analizi (Dalga Uzunluğu L ve Dalga Şiddeti)</span><span class="src">Ders 4 · s.17</span></div>
+  <div class="fig-img-wrap"><img src="img/d4_17.png" alt="Mevsimsel Bileşen Dalga Analizi"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Yatay Çift Yönlü Ok (L):</b> İki ardışık çukur/tepe arası süre = <b>Dalga Uzunluğu (Periyot)</b></span>
+    <span class="fig-tag"><b>Dikey Çift Yönlü Ok:</b> Çukur ile tepe arasındaki dikey mesafe = <b>Dalga Şiddeti (Genlik)</b></span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> Mevsimsel hareket düzenli aralıklarla kendini tekrarlayan dalgalardan oluşur. Grafik üzerinde yatay eksende bir dalganın başladığı noktadan bittiği noktaya kadar geçen süre <b>Dalga Uzunluğu (L)</b> olarak, dalganın en alt noktası ile en üst tepe noktası arasındaki dikey yükseklik ise <b>Dalga Şiddeti</b> olarak gösterilmiştir.
+  </div>
+</div>
+
+<h4>c) Döngüsel (Konjonktürel) Bileşen Grafiği <span class="src">Ders4 s.18-19</span></h4>
+<ul><li>Bir yıldan daha uzun dönemi kapsayan büyük salınımlar; iki yıl–on yıl ve daha uzun dönemde artış/azalış eğilimi.</li>
+<li>Mevsimselden farkı: mevsimsel dalga en fazla bir yılda, döngüsel dalga çok uzun sürede (20-30 yıl gibi) tamamlanır.</li>
+<li>Zaman dilimi yıl olmak zorunda değil; büyük dalganın uzun dönemde gerçekleşmesi yeterli.</li>
+<li>Serinin durağanlığını bozar, <b>seriden arındırılmalıdır</b>.</li></ul>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği: Döngüsel Bileşen Evreleri (Kriz, Tekrar Yükselme, Gelişme, Durgunluk)</span><span class="src">Ders 4 · s.19</span></div>
+  <div class="fig-img-wrap"><img src="img/d4_19.png" alt="Döngüsel Bileşen"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Ortadaki Düz Çizgi:</b> Uzun Dönem Trendi</span>
+    <span class="fig-tag"><b>Dip Nokta:</b> Kriz</span>
+    <span class="fig-tag"><b>Çıkış Kolu:</b> Tekrar Yükselme → Gelişme (Refah/Zirve)</span>
+    <span class="fig-tag"><b>İniş Kolu:</b> Durgunluk (Resesyon)</span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> Uzun dönem trend doğrusunun etrafında yıllara yayılan büyük ekonomik dalgalanma (konjonktür dalgası) 4 evreden oluşur: trendin altındaki en derin dip noktası <b>Kriz</b>, dipten trende doğru çıkış <b>Tekrar Yükselme</b>, trendin üzerindeki tepe bölgesi <b>Gelişme</b> ve tepeden tekrar aşağı iniş <b>Durgunluk</b> evresidir.
+  </div>
+</div>
+
+<h4>d) Düzensiz Hareketler (Irregular Movements) Grafiği <span class="src">Ders4 s.20-21</span></h4>
+<ul><li>Birdenbire, nedeni belli olmayan düzensiz sıçramalar veya çöküşler; <b>dış kaynaklı bozukluklar (disturbance)</b>.</li>
+<li>Depremler, nadir kazalar, kasırga vb. doğal afetler, savaşlar, ekonomik krizler.</li>
+<li>Seriden arındırılmalıdır; genellikle <b>gürültü</b> olarak adlandırılır; <b>durağan olmayan</b> süreçlerdir.</li>
+<li>Standart dönüşümlerle <b>tamamen yok etmek pek mümkün değildir</b>.</li></ul>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Grafiği: Düzensiz Hareketler (Contaminated Blowfly Data)</span><span class="src">Ders 4 · s.21</span></div>
+  <div class="fig-img-wrap"><img src="img/d4_21.png" alt="Düzensiz Hareketler"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>20–34 ve 36–70. Günler:</b> 2.000–7.000 bandında normal dalgalanma</span>
+    <span class="fig-tag"><b>~35. Gün (Devasa Zirve):</b> 17.000'e fırlayan ani dışsal şok = <b>Düzensiz Hareket</b></span>
+  </div>
+  <div class="fig-exp">
+    <b>Grafik Açıklaması:</b> Seri boyunca gözlemler 2.000 ile 7.000 arasında seyrederken, yaklaşık 35. zaman noktasında hiçbir periyodik kurala uymayan, birdenbire 17.000'in üzerine çıkan <b>tek ve çok keskin bir sıçrama</b> meydana gelmiştir. Bu tür öngörülemeyen dış kaynaklı bozulmalara <b>düzensiz hareket</b> denir.
+  </div>
+</div>
+
+<h4>e) “Hangi Bileşen / Bileşenler?” Slayt Uygulama Grafikleri <span class="src">Ders4 s.22-26</span></h4>
+<p>Hocanın derste <b>“Hangi Bileşen/Bileşenler?”</b> başlığıyla sorduğu 5 slaytın tamamı ve her grafikteki bileşenlerin açıklaması:</p>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Hangi Bileşen? (1/5): Trend + Mevsimsellik & Döngüsellik</span><span class="src">Ders 4 · s.22</span></div>
+    <div class="fig-img-wrap"><img src="img/d4_22.png" alt="Hangi Bileşen s.22"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Sol Grafik (1948–1960):</b> Artan Trend + Genliği Büyüyen Mevsimsellik</span>
+      <span class="fig-tag"><b>Sağ Grafik (1975–2000):</b> Mevsimsellik + Uzun Dönemli Döngüsel Dalga</span>
+    </div>
+    <div class="fig-exp">
+      <b>Çözüm:</b>
+      <ul>
+        <li><b>Sol grafik:</b> 1948'den 1960'a kadar sürekli yukarı giden bir <b>Artan Trend</b> ve her yıl aynı şekilde tekrarlanan <b>Mevsimsel bileşen</b> (çarpımsal/genliği artan mevsimsellik) birlikte bulunmaktadır.</li>
+        <li><b>Sağ grafik:</b> Her yıl içindeki sık zikzaklar <b>Mevsimsel bileşeni</b>, 1975–2000 boyunca büyük çanak/tepe yapan genel dalga ise <b>Döngüsel bileşeni</b> (ve hafif azalan eğilimi) gösterir.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Hangi Bileşen? (2/5): Değişen Yönlü Trend (Kağıt Havlu)</span><span class="src">Ders 4 · s.23</span></div>
+    <div class="fig-img-wrap"><img src="img/d4_23.png" alt="Hangi Bileşen s.23"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>0–60. Gözlem:</b> Azalan Trend</span>
+      <span class="fig-tag"><b>60. Gözlem:</b> Sert dip / Kırılma</span>
+      <span class="fig-tag"><b>60–120. Gözlem:</b> Artan Trend</span>
+    </div>
+    <div class="fig-exp">
+      <b>Çözüm:</b> Haftalık kağıt havlu satışları grafiğinde 60. haftaya kadar <b>azalan bir trend</b>, 60. haftadaki sert düşüşten sonra ise 120. haftaya kadar <b>artan bir trend</b> (iki farklı trend davranışı / stokastik trend) söz konusudur.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Hangi Bileşen? (3/5): Turizm Geliri ve Turist Sayısı</span><span class="src">Ders 4 · s.24</span></div>
+    <div class="fig-img-wrap"><img src="img/d4_24.png" alt="Hangi Bileşen s.24"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>LN_TRZMGELIR_D11 & LN_TRSTSAY_D11:</b> Çok belirgin <b>Mevsimsel Bileşen</b> + hafif <b>Artan Trend</b></span>
+    </div>
+    <div class="fig-exp">
+      <b>Çözüm:</b> Türkiye turizm geliri ve turist sayısı serilerinde her yıl yaz aylarında zirve yapıp kış aylarında dibe inen <b>çok güçlü periyodik Mevsimsel Bileşen</b> (kırmızı dalga oklarıyla gösterilen periyodik yapı) ve yıllar boyunca yukarı doğru hafif <b>Artan Trend</b> vardır.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Hangi Bileşen? (4/5): GSMH Serisi (LN_GSMH)</span><span class="src">Ders 4 · s.25</span></div>
+    <div class="fig-img-wrap"><img src="img/d4_25.png" alt="Hangi Bileşen s.25"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Yukarı Eğim:</b> Güçlü Doğrusal Artan Trend</span>
+      <span class="fig-tag"><b>Testere Dişi Zikzaklar:</b> Çeyreklik Mevsimsel Bileşen</span>
+    </div>
+    <div class="fig-exp">
+      <b>Çözüm:</b> Gayri Safi Milli Hasıla (<code>LN_GSMH</code>) grafiğinde sol alttan sağ üste doğru kararlı bir <b>Artan Trend</b> ve her yılın çeyreklerinde düzenli tekrarlanan <b>Mevsimsel Bileşen</b> birlikte yer almaktadır.
+    </div>
+  </div>
+</div>
+<div class="fig">
+  <div class="fig-head"><span>📊 Hangi Bileşen? (5/5): Döviz Kuru (LN_DOVIZ) — Trend ve Düzensiz Hareketler / Kırılmalar</span><span class="src">Ders 4 · s.26</span></div>
+  <div class="fig-img-wrap"><img src="img/d4_26.png" alt="Hangi Bileşen s.26"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Genel Yön:</b> Güçlü Artan Trend</span>
+    <span class="fig-tag"><b>Kırmızı Daireler (1994 ve 2001 Krizleri):</b> Ani sıçramalar = <b>Düzensiz Hareketler (Yapısal Kırılmalar)</b></span>
+  </div>
+  <div class="fig-exp">
+    <b>Çözüm:</b> <code>LN_DOVIZ</code> serisinde uzun dönemli <b>Artan Trend</b> bileşeninin yanı sıra, kırmızı dairelerle işaretlenen ekonomik kriz anlarında (1994 ve 2001) meydana gelen ani sıçramalar yani <b>Düzensiz Hareketler (ve yapısal kırılmalar)</b> bulunmaktadır.
+  </div>
+</div>
+
+<div class="box exam">“Hangi bileşen?” grafiği yorumlama sorusu gelebilir: tekrarlayan yıllık-içi dalgalar → mevsimsellik; uzun dönemli artış → trend; yıllara yayılan büyük dalga → döngü; tek ani sıçrama → düzensiz hareket. Ders 4 s.22-26'daki grafiklerde birden fazla bileşen birlikte görülür.</div>
+<div class="done-btn"><button class="primary" data-done="d4">✓ Bu bölümü bitirdim</button></div>
+</section>
+
+<!-- ================= DERS 5 ================= -->
+<section id="d5">
+<h2>Ders 5 · Temel Zaman Serisi Kontrolleri: Normallik ve Durağanlık</h2>
+<h3>1. Normallik kontrolü ve akış şeması <span class="src">s.2-5</span></h3>
+<p>Histogramın (olasılık yoğunluk fonksiyonunun) normal dağılımdan gelmesi, öngörünün gerçekleşecek değere <b>en yakın</b> olmasını sağlar.</p>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Grafiği: Zaman Serisi Verisi ve Histogramı</span><span class="src">Ders 5 · s.2</span></div>
+    <div class="fig-img-wrap"><img src="img/d5_02.png" alt="Zaman Serisi ve Histogramı"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Üst Grafik:</b> Zaman ekseninde çizdirilen seri (0–1000)</span>
+      <span class="fig-tag"><b>Alt Grafik:</b> Serinin olasılık yoğunluk fonksiyonu (histogramı)</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Zaman serisi analizinin ilk adımında serinin zaman eksenindeki grafiğiyle birlikte <b>histogramı (olasılık yoğunluk fonksiyonu)</b> çizdirilir. Alt grafikte histogramın sağ kuyruğunun hafif uzadığı (asimetrik olduğu) görülmektedir; normallik sağlanmazsa önce varyansı sabitleyecek dönüşümler uygulanır.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Şeması: Normallik Kontrolü Süreç Akışı</span><span class="src">Ders 5 · s.5</span></div>
+    <div class="fig-img-wrap"><img src="img/d5_05.png" alt="Normallik Akış Şeması"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Normal mi? Hayır:</b> Log (lnY), Kök (√Y), Box-Cox dönüşümü</span>
+      <span class="fig-tag"><b>Normal mi? Evet:</b> Zaman serisi grafiğini çizdir (Durağanlığa geç)</span>
+    </div>
+    <div class="fig-exp">
+      <b>Şema Açıklaması:</b> Verilerin histogramı çizdirildikten sonra normallik sınanır. <b>Hayır</b> ise varyansı sabitleyecek dönüşümler (Logaritmik, Kök, Box-Cox) uygulanır; <b>Evet</b> ise zaman serisi grafiği çizdirilerek durağanlık aşamasına geçilir.
+    </div>
+  </div>
+</div>
+
+<h3>2. Durağanlık ve Örnek Grafikler (Kamyon & ABD Tütün Üretimi) <span class="src">s.6-20</span></h3>
+<p><b>Neden önemli?</b> Seri durağan değilse farklı veri setlerinde farklı görüntüler sergiler; davranışı gelecek dönemlere <b>genellenemez</b> ve tahmin için yararlı olmaz.</p>
+<p><b>Durağan seri:</b> Stokastik süreç olarak tüm özellikleri (ortalama, varyans, kovaryans ve daha yüksek momentler) <b>zamana göre değişmiyorsa</b> ve seri <b>periyodik dalgalanma içermiyorsa</b>.</p>
+<p><b>Durağan olmayan seri:</b> Değişen bir ortalama ve değişen ortalama etrafında değişen varyansa sahip seri.</p>
+<p>Farklı dönemler için tanımlayıcı istatistiklerin sabit kalması varsayımı, zaman serisi çözümlemesinin <b>en önemli varsayımlarındandır</b>.</p>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Şeması: Durağanlık Sınıflandırması (Zayıf vs. Tam/Güçlü Durağan)</span><span class="src">Ders 5 · s.10</span></div>
+  <div class="fig-img-wrap"><img src="img/d5_10.png" alt="Durağanlık Şeması"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Sol Kol (Zayıf / Kovaryans / 2. Dereceden Durağan):</b> Sabit ortalama etrafında sabit salınımlarla hareket eden süreç</span>
+    <span class="fig-tag"><b>Sağ Kol (Tam / Güçlü Durağan):</b> Tüm istatistiksel özelliklerinin (bileşik olasılık dağılımının) zamana göre değişmemesi</span>
+  </div>
+  <div class="fig-exp">
+    <b>Şema Açıklaması:</b> Durağanlık varsayımı ikiye ayrılır: uygulamada en sık kullanılan <b>Zayıf (Weakly / Kovaryans / İkinci Dereceden) Durağanlık</b> (ilk iki moment ve kovaryansın zamana göre değişmemesi) ve teorik <b>Tam / Güçlü (Strictly / Strongly) Durağanlık</b> (tüm momentlerin ve bileşik dağılımın zamana göre değişmemesi).
+  </div>
+</div>
+
+<table><tr><th>Tür</th><th>Tanım</th></tr>
+<tr><td><b>Tam (güçlü / strictly) durağanlık</b></td><td>Tüm istatistiksel özelliklerin zamana göre değişmezliği. Gözlem kümesinin <b>bileşik olasılık dağılımı</b>, zaman noktaları orijine göre ileri/geri kaydırıldığında değişmiyorsa. Sadece zaman noktaları arasındaki <b>uzaklığa</b> bağlıdır; istatistiksel olarak <b>DENGE</b>de olan seridir.</td></tr>
+<tr><td><b>Birinci dereceden durağanlık</b></td><td>Sadece sıfır orijinine göre birinci momenti, yani <b>ortalaması</b> zamana göre değişmiyor.</td></tr>
+<tr><td><b>Zayıf / ikinci dereceden / kovaryans durağanlık</b></td><td>Ortalamanın yanında <b>varyans ve kovaryans</b> da zamana göre değişmiyor. Sabit bir ortalama etrafında sabit salınımlarla hareket eden seri. (k=0'da kovaryans = varyans olduğu için şartlarda kovaryans da belirtilir.)</td></tr></table>
+<div class="f">E(Y<sub>t</sub>) = E(Y<sub>s</sub>) = μ &nbsp;&nbsp; V(Y<sub>t</sub>) = V(Y<sub>s</sub>) = σ² &nbsp;&nbsp; Cov(Y<sub>t</sub>,Y<sub>s</sub>) = E(Y<sub>t</sub>−μ)(Y<sub>s</sub>−μ) = γ<sub>s−t</sub> &nbsp;&nbsp; (t,s = 1,…,T; t≠s)</div>
+<p>Kovaryans sadece gözlemler arasındaki <b>zaman aralığına (gecikmeye)</b> bağlıdır; zaman orijininin kaydırılması kovaryansı etkilemez.</p>
+
+<h4>Örnek-7: Kamyon Üretimi Zaman Serisi Grafiği ve Tablosu <span class="src">Ders5 s.17-18</span></h4>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Örnek-7 Grafiği: Günlük Ortalama Kamyon Üretim Hatası Sayısı</span><span class="src">Ders 5 · s.17</span></div>
+    <div class="fig-img-wrap"><img src="img/d5_17.png" alt="Örnek 7 Kamyon Üretimi"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>İlk Yarı (0–22):</b> Daha yüksek seviyede (2.0–3.5 arası) dalgalanma</span>
+      <span class="fig-tag"><b>İkinci Yarı (23–45):</b> Daha düşük seviyede (1.1–2.9 arası) dalgalanma</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Günlük ortalama kamyon üretim hatası grafiğinde serinin sabit bir ortalama etrafında hareket etmediği, <b>hafif azalan bir trend</b> içerdiği görülür. Dolayısıyla seri <b>ortalama açısından durağan değildir</b>.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Örnek-7 Tablosu: 2 Periyot İstatistik Karşılaştırması</span><span class="src">Ders 5 · s.18</span></div>
+    <div class="fig-img-wrap"><img src="img/d5_18.png" alt="Örnek 7 Tablo"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Ortalama:</b> 2.02 (1. Periyot) vs. 1.66 (2. Periyot)</span>
+      <span class="fig-tag"><b>Std. Sapma:</b> 0.56 vs. 0.45</span>
+    </div>
+    <div class="fig-exp">
+      <b>Tablo Açıklaması:</b> Seri iki periyoda bölündüğünde 1. periyot ortalaması <b>2.02</b> iken 2. periyot ortalaması <b>1.66</b>'ya düşmektedir. Trend bileşeni içeren bu seri öngörüden önce bu bileşenden <b>arındırılmalıdır</b>.
+    </div>
+  </div>
+</div>
+
+<h4>Örnek-8: ABD Tütün Üretimi Zaman Serisi Grafiği ve Tablosu <span class="src">Ders5 s.19-20</span></h4>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Örnek-8 Grafiği: Yıllık A.B.D. Tütün Üretimi (1880–1980)</span><span class="src">Ders 5 · s.19</span></div>
+    <div class="fig-img-wrap"><img src="img/d5_19.png" alt="Örnek 8 ABD Tütün Üretimi"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Yukarı Eğim:</b> Kararlı artış (Artan Ortalama / Trend)</span>
+      <span class="fig-tag"><b>Genişleyen Zikzaklar (1940–1980):</b> Zamanla büyüyen salınımlar (Değişen Varyans)</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> 1880–1920 arasında hem seviye düşüktür hem de zikzaklar çok dardır; 1940 sonrasında ise hem üretim düzeyi yükselmiş hem de yukarı-aşağı salınımların boyu çok büyümüştür. Yani <b>hem ortalama hem de varyans zamana göre değişmektedir</b>.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Örnek-8 Tablosu: 2 Periyot İstatistik Karşılaştırması</span><span class="src">Ders 5 · s.20</span></div>
+    <div class="fig-img-wrap"><img src="img/d5_20.png" alt="Örnek 8 Tablo"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Ortalama:</b> 885.88 → 1785.07</span>
+      <span class="fig-tag"><b>Std. Sapma:</b> 337.98 → 311.46 (salınım yapısı farklı)</span>
+    </div>
+    <div class="fig-exp">
+      <b>Tablo Açıklaması:</b> İki dönem arasında ortalama <b>885.88</b>'den <b>1785.07</b>'ye iki katından fazla artmıştır. Hem ortalama hem varyans durağansızlığı giderilmeden yapılacak öngörüler yüksek hata üretecektir.
+    </div>
+  </div>
+</div>
+
+<h3>3. Süreç akış şeması (zaman serisi grafiği ile) <span class="src">s.21-41</span></h3>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Şeması: Baştan Sona Tüm Zaman Serisi Analizi Süreç Akış Şeması</span><span class="src">Ders 5 · s.41</span></div>
+  <div class="fig-img-wrap"><img src="img/d5_41.png" alt="Tam Süreç Akış Şeması"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>Varyans Sabit Değil:</b> Dönüşümler (lnY, 1/Y, √Y, Y², Box-Cox) → Olmazsa <b>ARCH/GARCH</b></span>
+    <span class="fig-tag"><b>Ortalama Sabit Değil:</b> Stokastik trendde <b>1. / 2. Fark</b>; Deterministik trendde <b>De-trending / Ayrıştırma</b></span>
+    <span class="fig-tag"><b>İkisi de Sabit Değil:</b> Önce varyans, sonra ortalama → Olmazsa <b>VAR (KPSS sonrası) / Almon-Koyck</b></span>
+    <span class="fig-tag"><b>İkisi de Sabit (Durağan):</b> Box-Jenkins (AR, MA, ARMA, ARIMA, SARIMA) & Üstel Düzleştirme</span>
+  </div>
+  <div class="fig-exp">
+    <b>Şema Açıklaması:</b> Ders 5'in en önemli özet tablosudur. Bir seride hem varyans hem ortalama durağan değilse <b>önce değişen varyanslılıktan arındırılır, sonra ortalamayı bozan bileşenlerden arındırılır</b>. Tüm dönüşümler sonunda seri durağanlaştığında <b>Box-Jenkins</b> veya <b>Üstel Düzleştirme</b> modelleriyle öngörüye geçilir.
+  </div>
+</div>
+
+<h3>4. Varyans homojenliği, Box-Cox ve Örnek-9 (Otel Oda Sayısı) <span class="src">s.23-27</span></h3>
+<p><b>Değişen varyanslılık</b> finansal serilerde sıkça görülür; değişen varyanslı seri <b>OYNAK</b> veri (oynaklığı yüksek veri) olarak adlandırılır. Oynak veriler doğrudan <b>Box-Cox dönüşümü</b>ne tabi tutularak durağan hale getirilmelidir.</p>
+<div class="f">z<sub>t</sub><sup>(λ)</sup> = <span class="frac"><span>z<sub>t</sub><sup>λ</sup> − 1</span><span>λ</span></span> &nbsp;&nbsp; λ: dönüşüm parametresi</div>
+<table><tr><th>λ</th><th>Dönüşüm</th></tr><tr><td>0</td><td>Logaritmik</td></tr><tr><td>−1</td><td>1/z<sub>t</sub></td></tr><tr><td>0.5</td><td>√z<sub>t</sub></td></tr><tr><td>2 (DJI uygulamasında)</td><td>Karesi</td></tr></table>
+<ul><li>Negatif değerli veri varsa tüm değerler <b>pozitif bir değer ile toplanır</b>; bu sistematik yapıyı değiştirmez.</li>
+<li><b>SSE'yi en küçük veren</b> dönüşüm en ideal dönüşümdür.</li>
+<li>R: <code>library(MASS); b &lt;- boxcox(lm(x ~ 1)); lambda &lt;- b$x[which.max(b$y)]</code> → λ değerini verir.</li>
+<li>Dönüşümden sonra varyansın homojen olup olmadığı <b>mutlaka test edilmelidir</b>; çünkü her zaman sağlanamayabilir.</li></ul>
+<p><b>Varyans homojenlik testi:</b> Seri tam ortadan ikiye bölünür (σ<sub>1</sub>², σ<sub>2</sub>²).</p>
+<ul><li><b>F testi</b> (iki varyans oranı): H<sub>0</sub>: İki <b>normal</b> kitle eşit varyansa sahiptir.</li>
+<li><b>Levene testi</b>: H<sub>0</sub>: İki kitle eşit varyansa sahiptir.</li></ul>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Grafiği: Box-Cox R Kodu ve λ (Lambda) Log-Olabilirlik Eğrisi</span><span class="src">Ders 5 · s.24</span></div>
+    <div class="fig-img-wrap"><img src="img/d5_24.png" alt="Box-Cox Grafiği"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Yatay Eksen:</b> λ değerleri</span>
+      <span class="fig-tag"><b>Ortadaki Kesikli Çizgi (λ̂):</b> Log-olabilirliği maksimize eden (SSE'yi minimize eden) en uygun λ</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Mavi parabolün tepe noktasına karşılık gelen ortadaki dikey kesikli çizgi optimum <code>λ̂</code> değerini (burada ~0.58), sağ ve sol dikey kesikli çizgiler ise %95 güven aralığı sınırlarını gösterir.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Örnek-9 Grafiği: Aylık Dolu Otel Odası Sayısı (F ve Levene Testi)</span><span class="src">Ders 5 · s.27</span></div>
+    <div class="fig-img-wrap"><img src="img/d5_27.png" alt="Örnek 9 Varyans Homojenliği"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>F Testi:</b> Test istatistiği = 0.63, <b>p = 0.034 &lt; 0.05</b> (Varyanslar eşit değil)</span>
+      <span class="fig-tag"><b>Levene Testi:</b> Test istatistiği = 2.31, <b>p = 0.131 &gt; 0.05</b> (Varyanslar eşit)</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Üstteki grafikte serinin zamanla artan yayılımı ve güven aralıkları, altta ise 1. ve 2. yarıların kutu grafikleri (boxplot) yer alır. Normal dağılım varsayan <b>F testi (p=0.034)</b> H<sub>0</sub>'ı reddedip “varyanslar eşit değil” derken, normallikten daha az etkilenen <b>Levene testi (p=0.131)</b> H<sub>0</sub>'ı reddedemez (“varyanslar eşit”).
+    </div>
+  </div>
+</div>
+
+<h3>5. Fark alma ve Örnek-10 (Olympia Kağıt Havlu Grafikleri) <span class="src">s.30-38</span></h3>
+<p><b>d</b>: mevsimsel olmayan fark alma (normal fark alma) operatörü. Seri fark alınarak durağanlaştırıldıysa <b>modelde ifade edilmelidir</b>.</p>
+<div class="f">d=1: z<sub>t</sub> = y<sub>t</sub> − y<sub>t−1</sub>, &nbsp; t = 2,…,T &nbsp;&nbsp;&nbsp;&nbsp; d=2: z<sub>t</sub> = (y<sub>t</sub> − y<sub>t−1</sub>) − (y<sub>t−1</sub> − y<sub>t−2</sub>) = y<sub>t</sub> − 2y<sub>t−1</sub> + y<sub>t−2</sub>, &nbsp; t = 3,…,T</div>
+<ul><li>T gözlemin 1. farkında <b>ilk gözlem kaybolur</b>, seri 2. gözlemden başlar.</li>
+<li>Dönüşüm yapılmış seri “<b>çalışılan seri</b>” z<sub>b</sub>, z<sub>b+1</sub>, …, z<sub>T</sub>; <b>b</b>: dönüşümden sonra serinin başladığı sıra. Dönüşüm yoksa y<sub>1</sub>,…,y<sub>T</sub>.</li>
+<li>1. fark → <b>b = 2</b>; 2. fark → <b>b = 3</b>; dönüşüm yok (zaten durağan) → <b>b = 1</b>, z<sub>1</sub> = y<sub>1</sub>.</li>
+<li>1. fark bileşenden arındıramazsa 2. fark gerekebilir.</li>
+<li>Fark derecesi arttıkça durağanlık <b>kesin değildir</b>; gözlem kaybedilir, seri <b>daha karmaşık</b> hale gelebilir. Literatürde <b>ikiden fazla fark almanın sakıncalı</b> olabileceği belirtilir. İdeal olan <b>optimum fark sayısını</b> belirlemektir.</li></ul>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Örnek-10 (1/2): Olympia Kağıt Havlu Orijinal Serisi (y<sub>1</sub>…y<sub>120</sub>)</span><span class="src">Ders 5 · s.35</span></div>
+    <div class="fig-img-wrap"><img src="img/d5_35.png" alt="Örnek 10 Orijinal Seri"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>0–60. Hafta:</b> Azalan trend</span>
+      <span class="fig-tag"><b>60–120. Hafta:</b> Artan trend (Sabit ortalama yok!)</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Geçmiş 120 haftalık kağıt havlu satış miktarı grafiğinde seri sabit bir ortalama etrafında hareket etmemektedir; 60. gözleme kadar azalan, 60. gözlemden sonra ise artan bir trend olduğundan <b>durağan değildir</b>.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Örnek-10 (2/2): Birinci Dereceden Farkı Alınmış Seri (z<sub>2</sub>…z<sub>120</sub>)</span><span class="src">Ders 5 · s.36</span></div>
+    <div class="fig-img-wrap"><img src="img/d5_36.png" alt="Örnek 10 Birinci Fark Serisi"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Yatay Merkez (0):</b> Trend ortadan kalkmış, seri 0 etrafında salınıyor</span>
+      <span class="fig-tag"><b>66. ve 67. Noktalar:</b> +4 ve −4'e uzanan iki keskin uç sapma</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> 1. dereceden fark (<code>z<sub>t</sub> = y<sub>t</sub> − y<sub>t−1</sub></code>) alındığında orijinal serideki trend kalkmış ve seri 0 ortalaması etrafında sabit salınımlı hale gelmiştir. Ancak <b>66. (+4.5) ve 67. (−4.5) gözlemlerdeki sert sapmalar</b> durağanlığı bozabilir; ikinci fark düşünülebilir fakat her fark gözlem kaybettirir ve kesin durağanlık garanti etmez.
+    </div>
+  </div>
+</div>
+
+<h3>6. Birim kök testleri <span class="src">s.42-45</span></h3>
+<h4>Dickey-Fuller (DF) – Dickey & Fuller (1979), üç kalıp</h4>
+<div class="f">ΔY<sub>t</sub> = δY<sub>t−1</sub> + u<sub>t</sub> &nbsp;&nbsp;(sadece gecikmeli değer)<br>
+ΔY<sub>t</sub> = β<sub>1</sub> + δY<sub>t−1</sub> + u<sub>t</sub> &nbsp;&nbsp;(sabit parametreli)<br>
+ΔY<sub>t</sub> = β<sub>1</sub> + β<sub>2</sub>t + δY<sub>t−1</sub> + u<sub>t</sub> &nbsp;&nbsp;(sabit + deterministik trend)</div>
+<p>Y<sub>t</sub>'nin gecikmeli değerinin <b>t istatistiği</b> ADF test istatistiğidir; <b>MacKinnon (1991)</b> kritik değerleriyle karşılaştırılır.</p>
+<div class="f">H<sub>0</sub>: δ = 0 (t<sub>δ̂</sub> &gt; τ) → durağan değil, <b>birim köke sahip</b> &nbsp;&nbsp;|&nbsp;&nbsp; H<sub>1</sub>: δ &lt; 0 (t<sub>δ̂</sub> &lt; τ) → durağan, birim köke sahip değil</div>
+<h4>Artırılmış Dickey-Fuller (ADF)</h4>
+<div class="f">ΔY<sub>t</sub> = δY<sub>t−1</sub> + Σ<sub>j=2</sub><sup>p</sup>δ<sub>j</sub>ΔY<sub>t−j+1</sub> + e<sub>t</sub><br>
+ΔY<sub>t</sub> = α + δY<sub>t−1</sub> + Σ<sub>j=2</sub><sup>p</sup>δ<sub>j</sub>ΔY<sub>t−j+1</sub> + e<sub>t</sub><br>
+ΔY<sub>t</sub> = α + βt + δY<sub>t−1</sub> + Σ<sub>j=2</sub><sup>p</sup>δ<sub>j</sub>ΔY<sub>t−j+1</sub> + e<sub>t</sub></div>
+<p>Gecikme uzunluğu: <b>Akaike</b> veya <b>Schwarz</b> bilgi kriterleri. <b>Schwert (1989)</b> maksimum gecikme:</p>
+<div class="f">p<sub>max</sub> = [ 12 (n/100)<sup>1/4</sup> ]</div>
+<h4>KPSS</h4>
+<p>ADF testi genelde <b>düşük güçlüdür</b>; Schwert (1989) Monte Carlo ile ADF'nin düşük güçlü ve <b>gecikme uzunluğu seçimine çok duyarlı</b> olduğunu göstermiştir. KPSS'de <b>H<sub>0</sub> durağanlıktır</b>. Trend olmadığı varsayılır: Y<sub>t</sub> = μ̂ + ê<sub>t</sub>, ê<sub>t</sub> durağan varsayılır.</p>
+<div class="f">H<sub>0</sub>: σ<sub>u</sub>² = 0 (durağan) &nbsp;&nbsp;&nbsp; H<sub>1</sub>: σ<sub>u</sub>² &gt; 0 (birim kök vardır)</div>
+<div class="box exam">ADF: H<sub>0</sub> birim kök var (durağan değil) · KPSS: H<sub>0</sub> durağan. DF'nin 3 kalıbı, Box-Cox λ değerleri, b değerleri (1, 2, 3), fark formülleri, durağanlık türlerinin tanımları, akış şeması (ARCH/GARCH, de-trending, VAR/KPSS) — hepsi klasik/boşluk doldurma adayı.</div>
+<div class="done-btn"><button class="primary" data-done="d5">✓ Bu bölümü bitirdim</button></div>
+</section>
+
+<!-- ================= UYGULAMA 1 ================= -->
+<section id="u1">
+<h2>Uygulama 1 · DJI (Dow Jones Industrial Average)</h2>
+<p><i>Videoyu izlerken bu sayfayı açık tut. Tüm slayt grafikleri ve R çıktıları kendi adım başlığı altına eklenmiştir.</i></p>
+
+<h3>Adım 1 – Veri ve Fiyat Grafikleri <span class="src">s.2-5</span></h3>
+<p>DJIA bileşen şirketleri tablosu (3M, American Express, Amgen, Apple, Boeing, Caterpillar, Chevron, Cisco, Coca-Cola, Goldman Sachs…, endeks ağırlıklarıyla). Veri: 2020-01-02 – 2025 sonu günlük; sütunlar <code>DJI.Open, High, Low, Close, Volume, Adjusted</code>. Grafik: <code>chartSeries(DJI, type="bars", theme="white")</code>. Analizde <b>Adjusted</b> fiyat kullanılıyor. Fiyat grafiğinde 2020 başında sert düşüş ve sonra genel artış eğilimi var.</p>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 DJI_Adjusted Fiyat + İşlem Hacmi (chartSeries)</span><span class="src">Uyg 1 · s.4</span></div>
+    <div class="fig-img-wrap"><img src="img/u1_04.png" alt="DJI chartSeries"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Üst Panel:</b> 2020–2025 DJI düzeltilmiş kapanış fiyatı (artan trend)</span>
+      <span class="fig-tag"><b>Alt Panel (Volume):</b> Milyon adet işlem hacmi çubukları</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> 2020 Mart ayında pandemi şokuyla ~19.000 seviyesine sert bir çöküş yaşanmış (aynı dönemde alt paneldeki işlem hacmi barları zirve yapmıştır), ardından 2025'te 46.706 seviyesine kadar uzun dönemli <b>artan bir trend</b> izlenmiştir.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 DJI-Adjusted Zaman Serisi Grafiği (plot.ts)</span><span class="src">Uyg 1 · s.5</span></div>
+    <div class="fig-img-wrap"><img src="img/u1_05.png" alt="DJI plot.ts"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Yatay Eksen (Time):</b> ~1460 iş günü gözlemi</span>
+      <span class="fig-tag"><b>Dikey Eksen (dj_adj):</b> 20.000–45.000 puan bandı</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Ham fiyat serisi (<code>dj_adj</code>) zamana göre sabit bir ortalama etrafında salınmamaktadır; belirgin <b>yukarı yönlü trend</b> içerdiği için durağan değildir. Bu nedenle analiz getiri serisi üzerinden sürdürülür.
+    </div>
+  </div>
+</div>
+
+<h3>Adım 2 – Getiri Hesabı ve Getiri Grafiği <span class="src">s.6-7</span></h3>
+<p>Basit net getiri R<sub>t</sub> = P<sub>t</sub>/P<sub>t−1</sub> − 1. Örn. 2020-01-03: 28634.88/28868.80 − 1 = <b>−0.0081</b>. Getiri grafiği sıfır etrafında dalgalanıyor; <b>2020 başında çok büyük dalgalanmalar</b> (oynaklık kümelemesi) ve 2025'te bir sıçrama göze çarpıyor.</p>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 DJI_getiri: Basit Net Getiri Zaman Serisi Grafiği</span><span class="src">Uyg 1 · s.6</span></div>
+    <div class="fig-img-wrap"><img src="img/u1_06.png" alt="DJI Getiri Grafiği"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Merkez Çizgisi (0.00):</b> Sabit ortalama</span>
+      <span class="fig-tag"><b>Sol Başlangıç (2020):</b> ±0.12'ye ulaşan <b>Oynaklık Kümelemesi</b></span>
+      <span class="fig-tag"><b>Sağ Kısım (~1300. gözlem):</b> 2025'teki ani sıçrama (aykırı gözlem)</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Fiyat serisinden basit net getiriye (<code>dj_ret</code>) geçildiğinde trend ortadan kalkmış ve seri 0 ortalaması etrafında dalgalanmaya başlamıştır. Ancak 2020'nin başında (0–150. gözlemler arası) çok geniş salınımlar bir arada kümelenmiştir (<b>volatility clustering</b>).
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Farklı Dönemlerde (k = 1, 5, 20) Getiri R Çıktısı</span><span class="src">Uyg 1 · s.7</span></div>
+    <div class="fig-img-wrap"><img src="img/u1_07.png" alt="DJI Çok Dönemli Getiri"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Delt(dj_adj, k=1):</b> Günlük basit getiri</span>
+      <span class="fig-tag"><b>k=1:5 ve k=20:</b> Haftalık (5 iş günü) ve aylık (20 iş günü) çoklu dönem getirileri</span>
+    </div>
+    <div class="fig-exp">
+      <b>Görsel Açıklaması:</b> <code>quantmod::Delt</code> fonksiyonu ile <code>k=1</code> (günlük), <code>k=5</code> (5 günlük) ve <code>k=20</code> (20 günlük / yaklaşık 1 aylık) çok dönemli basit net getiriler hesaplanmıştır; <code>k</code> kadar ilk gözlem <code>NA</code> olur.
+    </div>
+  </div>
+</div>
+
+<h3>Adım 3 – Yıllara göre tanımlayıcı istatistikler ve kutu grafiği <span class="src">s.8-9</span></h3>
+<table><tr><th></th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr>
+<tr><td>nobs</td><td>252</td><td>252</td><td>251</td><td>250</td><td>252</td><td>200</td></tr>
+<tr><td>Min</td><td>−0.129</td><td>−0.025</td><td>−0.039</td><td>−0.021</td><td>−0.026</td><td>−0.055</td></tr>
+<tr><td>Max</td><td>0.114</td><td>0.019</td><td>0.037</td><td>0.021</td><td>0.036</td><td>0.079</td></tr>
+<tr><td>Mean</td><td>0.000502</td><td>0.000712</td><td>−0.000288</td><td>0.000540</td><td>0.000506</td><td>0.000529</td></tr>
+<tr><td>Stdev</td><td>0.0232</td><td>0.0078</td><td>0.0125</td><td>0.0072</td><td>0.0072</td><td>0.0112</td></tr>
+<tr><td>Skewness</td><td>−0.459</td><td>−0.354</td><td>−0.051</td><td>−0.012</td><td>0.051</td><td>0.794</td></tr>
+<tr><td>Kurtosis</td><td><b>8.351</b></td><td>0.654</td><td>0.375</td><td>0.140</td><td>2.701</td><td><b>13.891</b></td></tr></table>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Görseli: Yıllara Göre Tanımlayıcı İstatistikler</span><span class="src">Uyg 1 · s.8</span></div>
+    <div class="fig-img-wrap"><img src="img/u1_08.png" alt="DJI Tanımlayıcı İstatistikler"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>2020 Stdev = 0.0232:</b> En yüksek oynaklık</span>
+      <span class="fig-tag"><b>2020 & 2025 Kurtosis:</b> 8.35 ve 13.89 (Çok kalın kuyruk)</span>
+    </div>
+    <div class="fig-exp">
+      <b>Tablo Yorumu:</b> 2022 yılı negatif ortalamaya (−0.000288) sahip tek yıldır. 2020 ve 2025 yıllarında basıklık (Kurtosis) çok yüksektir; bu yıllarda aşırı uç getiriler yaşanmıştır.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Grafiği: Yıllara Göre Kutu Grafiği (Box Plots 2020–2025)</span><span class="src">Uyg 1 · s.9</span></div>
+    <div class="fig-img-wrap"><img src="img/u1_09.png" alt="DJI Boxplot"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Mavi Kutuların Ortası:</b> Tüm yıllarda medyan ~0.00</span>
+      <span class="fig-tag"><b>Siyah Noktalar (Özellikle 2020 ve 2025):</b> Kutu bıyıklarının dışındaki çok sayıda <b>aykırı gözlem (outlier)</b></span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> 2020 yılında hem kutu genişliği (çeyrekler açıklığı) diğer yıllardan büyüktür hem de −0.13 ile +0.11 arasında uzanan çok sayıda siyah nokta (aykırı değer) vardır. 2023 yılı ise en dar yayılıma ve en az aykırı değere sahip sakin yıldır.
+    </div>
+  </div>
+</div>
+
+<h3>Adım 4 – Normallik: Yoğunluk Grafikleri, Shapiro-Wilk ve Q-Q Plot <span class="src">s.10-12</span></h3>
+<p><b>Shapiro-Wilk</b>, H<sub>0</sub>: Veriler normal dağılan bir kitleden gelmektedir.</p>
+<table><tr><th>Yıl</th><th>p</th><th>Karar (α=0.05)</th></tr>
+<tr><td>2020</td><td>5.7e-15</td><td>Normal değil</td></tr><tr><td>2021</td><td>2.2e-03</td><td>Normal değil</td></tr>
+<tr><td>2022</td><td>0.287</td><td><b>Normal</b> (H<sub>0</sub> reddedilemez)</td></tr><tr><td>2023</td><td>0.781</td><td><b>Normal</b></td></tr>
+<tr><td>2024</td><td>4.6e-05</td><td>Normal değil</td></tr><tr><td>2025</td><td>2.6e-13</td><td>Normal değil</td></tr></table>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Grafiği: Yıllara Göre Olasılık Yoğunluk Grafikleri (2020–2025)</span><span class="src">Uyg 1 · s.10</span></div>
+    <div class="fig-img-wrap"><img src="img/u1_10.png" alt="DJI Yoğunluk Grafikleri"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>2020:</b> Basık tepe ama −0.10 ve +0.10'a uzanan çok uzun kuyruklar</span>
+      <span class="fig-tag"><b>2021, 2023, 2024:</b> 0 etrafında çok dik ve dar yoğunluk tepeleri</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Yıllara göre yoğunluk eğrilerinin yüksekliği ve genişliği birbirinden oldukça farklıdır (varyansın yıllara göre değiştiğinin görsel kanıtı). 2020 ve 2025'te uçlardaki küçük tümsekler aşırı uç getirileri (kalın kuyrukları) gösterir.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Grafiği: Yıllara Göre Q-Q Plot Grafikleri (2020–2025)</span><span class="src">Uyg 1 · s.12</span></div>
+    <div class="fig-img-wrap"><img src="img/u1_12.png" alt="DJI QQ Plot"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>2020 & 2025:</b> Sol uçta aşağı, sağ uçta yukarı S-biçimli sert kopuş (Kalın kuyruk / Normal değil)</span>
+      <span class="fig-tag"><b>2022 & 2023:</b> Noktalar referans doğrusunun tam üzerinde (Normal)</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Q-Q plotlar Shapiro-Wilk tablosunu birebir doğrular: <b>2022 (p=0.287)</b> ve <b>2023 (p=0.781)</b> panellerinde mavi noktalar referans doğrusundan neredeyse hiç sapmazken, <b>2020 ve 2025</b> panellerinde uç noktalar doğrudan çok uzaklaşmıştır.
+    </div>
+  </div>
+</div>
+
+<h3>Adım 5 – Ortalamalar arası fark <span class="src">s.13</span></h3>
+<p>Önce <code>shapiro.test(data)</code>: W = 0.82685, p &lt; 2.2e-16 → <b>H<sub>0</sub> red, normal değil</b>. “Normal dağılıma uysaydı” denilerek <b>Welch t-testi</b>: H<sub>0</sub>: ortalamalar arası fark sıfırdır. t = −0.21192, df = 1112.1, <b>p = 0.8322</b> → H<sub>0</sub> reddedilemez, fark istatistiksel olarak <b>önemli değil</b>, sıfırdır. (Ortalamalar 0.000342 ve 0.000484.)</p>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Görseli: Normallik Testi ve İki Grup Welch t-Testi (Ortalamalar Eşitliği)</span><span class="src">Uyg 1 · s.13</span></div>
+  <div class="fig-img-wrap"><img src="img/u1_13.png" alt="DJI Welch t-test"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>shapiro.test:</b> W = 0.82685, p &lt; 2.2e-16 (Normal değil)</span>
+    <span class="fig-tag"><b>t.test:</b> t = −0.21192, <b>p = 0.8322 &gt; 0.05</b> (H<sub>0</sub> reddedilemez → Ortalamalar eşit)</span>
+  </div>
+  <div class="fig-exp">
+    <b>Çıktı Açıklaması:</b> Veri ortadan ikiye (<code>sample1</code> ve <code>sample2</code>) bölünerek iki yarının ortalamalarının birbirine eşit olup olmadığı test edilmiştir. <b>p = 0.8322 &gt; 0.05</b> olduğu için H<sub>0</sub> reddedilemez; getiri serisinin ortalaması zamanın iki yarısında değişmemiştir (ortalama durağanlığı vardır).
+  </div>
+</div>
+
+<h3>Adım 6 – Varyans homojenliği ve Box-Cox Dönüşümü Grafiği <span class="src">s.14-15</span></h3>
+<p><code>var.test(sample1, sample2)</code> (F testi), H<sub>0</sub>: İki grubun varyansları eşittir. F = 3.4859, df 727/728, p &lt; 2.2e-16 → <b>H<sub>0</sub> red, varyanslar eşit değil</b> (varyans oranı 3.49).</p>
+<p><b>Box-Cox:</b> Veri negatif değerli olduğundan <code>data_pos &lt;- data + abs(min(data)) + 1</code> ile pozitife kaydırılır. <b>λ = 2</b> → orijinal verinin <b>karesi</b> alınırsa varyans homojenliği sağlanabilir.</p>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Görseli: F Testi (var.test) ile Varyans Homojenliği</span><span class="src">Uyg 1 · s.14</span></div>
+    <div class="fig-img-wrap"><img src="img/u1_14.png" alt="DJI var.test"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>F = 3.4859</b> (1. yarı varyansı 2. yarının 3.49 katı)</span>
+      <span class="fig-tag"><b>p-value &lt; 2.2e-16:</b> H<sub>0</sub> Red (Varyanslar eşit değil!)</span>
+    </div>
+    <div class="fig-exp">
+      <b>Çıktı Açıklaması:</b> İki dönemin varyans oranı 3.4859 çıkmış ve p &lt; 0.05 olduğundan H<sub>0</sub> reddedilmiştir. Seride <b>değişen varyanslılık (heteroskedastisite)</b> vardır.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Grafiği: Varyans Homojenliği İçin Box-Cox (λ = 2)</span><span class="src">Uyg 1 · s.15</span></div>
+    <div class="fig-img-wrap"><img src="img/u1_15.png" alt="DJI Box-Cox"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>data_pos:</b> Negatif getirileri pozitife taşıma</span>
+      <span class="fig-tag"><b>Sağ Uçta Tepe (λ = 2):</b> Log-likelihood eğrisi λ=2'de maksimuma ulaşıyor</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Box-Cox log-olabilirlik eğrisi −2'den +2'ye doğru sürekli yükselerek en yüksek değerine <b>λ = 2</b> noktasında ulaşmaktadır. Slayttaki yoruma göre: <b>“Orijinal verinin karesi alınırsa varyans homojenliği sağlanabilir.”</b>
+    </div>
+  </div>
+</div>
+
+<h3>Adım 7 – Trend testleri (Cox-Stuart & Mann-Kendall) <span class="src">s.16-17</span></h3>
+<table><tr><th>Test</th><th>H<sub>0</sub></th><th>Çıktı</th><th>Karar</th></tr>
+<tr><td>Cox-Stuart</td><td>Veride artan trend yoktur</td><td>D+ = 368, p = 0.3834</td><td>H<sub>0</sub> reddedilemez → artan trend yok</td></tr>
+<tr><td>Mann-Kendall</td><td>Trend yoktur</td><td>tau = −0.00726, p = 0.67792</td><td>H<sub>0</sub> reddedilemez → trend yok</td></tr></table>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Görseli: Cox-Stuart Trend Testi</span><span class="src">Uyg 1 · s.16</span></div>
+    <div class="fig-img-wrap"><img src="img/u1_16.png" alt="DJI Cox Stuart"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-exp"><b>Çıktı Açıklaması:</b> <code>cs.test(data)</code> sonucunda <b>p = 0.3834 &gt; 0.05</b> olduğundan H<sub>0</sub> reddedilemez; DJI getiri serisinde artan trend yoktur.</div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 Slayt Görseli: Mann-Kendall Trend Testi</span><span class="src">Uyg 1 · s.17</span></div>
+    <div class="fig-img-wrap"><img src="img/u1_17.png" alt="DJI Mann Kendall"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-exp"><b>Çıktı Açıklaması:</b> <code>MannKendall(data)</code> sonucunda <code>tau = -0.00726</code> ve <b>2-sided pvalue = 0.67792 &gt; 0.05</b> olduğundan H<sub>0</sub> reddedilemez; seride trend yoktur.</div>
+  </div>
+</div>
+
+<h3>Adım 8 – Birim kök (ADF Testi: Type 1, Type 2, Type 3) <span class="src">s.18-20</span></h3>
+<p>H<sub>0</sub>: Seri durağan değildir.</p>
+<table><tr><th>Tip</th><th>Ne zaman yorumlanır</th><th>Sonuç</th></tr>
+<tr><td>Type 1: no drift no trend</td><td>Seride ortalama ve trend yoksa</td><td rowspan="3">Tüm gecikmelerde (lag 0–7) ADF ≈ −45.4 … −14.2, <b>p = 0.01</b> → H<sub>0</sub> reddedilir → <b>seri durağandır</b>.</td></tr>
+<tr><td>Type 2: with drift no trend</td><td>Ortalama var, trend yoksa</td></tr>
+<tr><td>Type 3: with drift and trend</td><td>Hem ortalama hem trend varsa</td></tr></table>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 ADF Type 1 (Sabitsiz & Trendsiz) ve Type 2 (Sabitli)</span><span class="src">Uyg 1 · s.18-19</span></div>
+    <div class="fig-img-wrap"><img src="img/u1_18.png" alt="DJI ADF Type 1"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-exp"><b>Çıktı Açıklaması:</b> <code>aTSA::adf.test(data)</code> çıktısında lag 0'dan 7'ye kadar tüm ADF istatistikleri (−45.4'ten −14.2'ye) çok negatiftir ve <b>p.value = 0.01 &lt; 0.05</b>'tir.</div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 ADF Type 3 (Sabitli ve Trendli Model)</span><span class="src">Uyg 1 · s.20</span></div>
+    <div class="fig-img-wrap"><img src="img/u1_20.png" alt="DJI ADF Type 3"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-exp"><b>Çıktı Açıklaması:</b> Type 3 modelinde de tüm gecikmeler için <b>p.value = 0.01 &lt; 0.05</b> olup <b>H<sub>0</sub> (birim kök var / durağan değil) reddedilir</b>.</div>
+  </div>
+</div>
+<div class="box warn">Slayt “H0 reddedilir. Yani seri durağan değildir” diyor; bu, H<sub>0</sub>'ın tanımıyla çelişiyor. H<sub>0</sub>=“durağan değil” reddedildiyse seri <b>durağan</b>dır. Videoda hocanın ne dediğini not et.</div>
+<div class="box tip">DJI özeti: Getiri normal değil (çoğu yıl) → varyanslar eşit değil (değişen varyans/oynaklık) → Box-Cox λ=2 → trend yok (Cox-Stuart, Mann-Kendall) → ADF'ye göre H<sub>0</sub> red.</div>
+<div class="done-btn"><button class="primary" data-done="u1">✓ Bu bölümü bitirdim</button></div>
+</section>
+
+<!-- ================= UYGULAMA 2 ================= -->
+<section id="u2">
+<h2>Uygulama 2 · TESLA</h2>
+<p><i>Not: Sunumdaki tüm çözümler 2020-2024 verisi içindir (s.2). Slaytlardaki tüm grafikler ve R çıktıları aşağıda kendi adım başlıkları altında açıklanmıştır.</i></p>
+
+<h3>Adım 1 – Fiyat ve Getiri Grafikleri <span class="src">s.3-9</span></h3>
+<pre>plot(df_tesla$TSLA.Close, main='TESLA Hisse Fiyati', subset='2010::2024')
+chartSeries(df_tesla$TSLA.Close, type="bars", ..., subset='2020::2024')
+tsla_ret  &lt;- CalculateReturns(df_tesla$TSLA.Close, method="simple")   # basit getiri
+tsla_lret &lt;- CalculateReturns(df_tesla$TSLA.Close, method="log")      # log getiri</pre>
+<p>Fiyat 2020-06 – 2024-11 arasında ~58 ile ~410 arasında dalgalanıyor (2021 sonunda zirve). Getiri grafikleri sıfır etrafında. s.9'da log getiri farklı frekanslarda (günlük, haftalık, aylık, yıllık) çizilmiş.</p>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 TESLA Kapanış Fiyatı (2010–2024)</span><span class="src">Uyg 2 · s.3</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_03.png" alt="TESLA 2010-2024 Fiyat"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>2010–2019:</b> Düşük ve yatay seyir</span>
+      <span class="fig-tag"><b>2020 Sonrası:</b> Yapısal kırılma / üssel sıçrama ve yüksek dalgalanma</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> 2010–2019 arasında çok düşük seviyede seyreden TESLA hisse fiyatı 2020 yılından itibaren sert bir rejim değişimiyle 400$ üzerine tırmanmış ve yüksek oynaklık sergilemiştir.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 TESLA Kapanış Fiyatı (subset='2020::2024')</span><span class="src">Uyg 2 · s.5</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_05.png" alt="TESLA 2020-2024 Fiyat"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>2020–2021 Sonu:</b> ~58$'dan ~410$'a yükselen trend</span>
+      <span class="fig-tag"><b>2022–2024:</b> İnişli çıkışlı (döngüsel/değişen trendli) hareket</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Analizin odaklandığı 2020–2024 alt örnekleminde fiyat serisi önce hızla yükselip 2021 sonunda zirve yapmakta, 2023 başında ~100$'a kadar gerileyip tekrar dalgalanmaktadır (iki farklı trend davranışı).
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 TESLA Günlük Basit Getiri (tsla_ret) Grafiği</span><span class="src">Uyg 2 · s.6</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_06.png" alt="TESLA Basit Getiri"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>Merkez (0.0):</b> Sıfır ortalama etrafında salınım</span>
+      <span class="fig-tag"><b>Uç Sıçramalar:</b> −0.21 ile +0.22 arasında aykırı gözlemler ve oynaklık kümelemesi</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> <code>CalculateReturns(..., method="simple")</code> ile elde edilen günlük basit getiri serisinde trend kalkmıştır ancak dönem dönem genişleyen oynaklık kümeleri ve ±%20'yi aşan uç sıçramalar mevcuttur.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 TESLA Günlük Log-Getiri (tsla_lret) ve Çoklu Frekanslar</span><span class="src">Uyg 2 · s.8-9</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_09.png" alt="TESLA Çok Dönemli Log Getiri"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>4 Panel:</b> Günlük, Haftalık, Aylık ve Yıllık log-getiri karşılaştırması</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik Açıklaması:</b> Log-getiri serisi <code>to.weekly</code>, <code>to.monthly</code> ve <code>to.yearly</code> ile farklı zaman dilimlerinde çizdirilmiştir; frekans düştükçe (günlükten yıllığa geçildikçe) kısa vadeli gürültü azalmakta ve ana dalgalanma yapısı daha net görülmektedir.
+    </div>
+  </div>
+</div>
+
+<h3>Adım 2 – Tanımlayıcı İstatistikler ve Histogramlar <span class="src">s.10-13</span></h3>
+<table><tr><th></th><th>Fiyat (Close)</th><th>Basit getiri</th><th>Log getiri</th></tr>
+<tr><td>n</td><td>1116</td><td>1115 (1 NA)</td><td>1115 (1 NA)</td></tr>
+<tr><td>Ortalama</td><td>223.41</td><td>0.002021</td><td>0.001256</td></tr>
+<tr><td>Medyan</td><td>223.68</td><td>0.001659</td><td>0.001658</td></tr>
+<tr><td>Std. sapma</td><td>63.96</td><td>0.0392</td><td>0.0391</td></tr>
+<tr><td>Min / Maks</td><td>57.63 / 409.97</td><td>−0.2106 / 0.2192</td><td>−0.2365 / 0.1982</td></tr>
+<tr><td>Çarpıklık</td><td>0.039</td><td>0.249</td><td>−0.030</td></tr>
+<tr><td>Basıklık (excess)</td><td>0.274</td><td>2.799</td><td>2.814</td></tr></table>
+<p>İlk satırda NA olmasının nedeni: getiri hesabında <b>ilk gözlem kaybolur</b> (P<sub>t−1</sub> yok). Getirilerin basıklığı yüksek → kalın kuyruk; log getiri neredeyse simetrik.</p>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 TSLA.Close: basicStats ve Histogram/Yoğunluk</span><span class="src">Uyg 2 · s.10</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_10.png" alt="TSLA Close basicStats"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-exp"><b>Grafik Açıklaması:</b> Kapanış fiyatının (2020–2024, n=1116) ortalaması 223.41$, standart sapması 63.96$'dır. Sağdaki yoğunluk grafiğinde 200–250$ etrafında toplanan yayvan dağılım görülür.</div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 tsla_ret (Basit Getiri): basicStats ve Yoğunluk</span><span class="src">Uyg 2 · s.11</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_11.png" alt="TSLA Basit Getiri basicStats"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-exp"><b>Grafik Açıklaması:</b> Basit getiride <code>NA = 1</code> (ilk gözlem kaybı), çarpıklık <b>0.249 (sağa çarpık)</b> ve basıklık <b>2.799 (sivri tepe / kalın kuyruk)</b> olarak hesaplanmıştır.</div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 tsla_lret (Log-Getiri): basicStats ve Yoğunluk</span><span class="src">Uyg 2 · s.12</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_12.png" alt="TSLA Log Getiri basicStats"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-exp"><b>Grafik Açıklaması:</b> Log-getiride çarpıklık <b>−0.030</b>'a düşmüştür (neredeyse tam <b>simetrik</b>), ancak basıklık <b>2.814</b> ile yine kalın kuyrukludur.</div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 ggplot2 ile TSLA.Close Histogramı (bins=30)</span><span class="src">Uyg 2 · s.13</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_13.png" alt="TSLA ggplot histogram"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-exp"><b>Grafik Açıklaması:</b> <code>geom_histogram(bins=30, fill="lightblue")</code> ile çizilen fiyat histogramı; merkezde 220–250$ bandında yoğunlaşma olmakla birlikte sol (60–100$) ve sağ (350–400$) kuyruklarda omuzlar mevcuttur.</div>
+  </div>
+</div>
+
+<h3>Adım 3 – Normallik, Çarpıklık (D'Agostino) ve Uyum İyiliği (gofTest) <span class="src">s.14-19</span></h3>
+<table><tr><th>Seri</th><th>Test</th><th>Çıktı</th><th>Karar</th></tr>
+<tr><td>Fiyat</td><td>Jarque-Bera</td><td>X² = 3.9273, p = 0.1403</td><td>H<sub>0</sub> reddedilemez → normal</td></tr>
+<tr><td>Fiyat</td><td>Shapiro-Wilk</td><td>W = 0.99141, p = 4.236e-06</td><td>H<sub>0</sub> red → normal değil</td></tr>
+<tr><td>Basit getiri</td><td>Jarque-Bera</td><td>X² = 378.374, p &lt; 2.2e-16</td><td>Normal değil</td></tr>
+<tr><td>Basit getiri</td><td>Shapiro-Wilk</td><td>W = 0.9708, p = 3.376e-14</td><td>Normal değil</td></tr>
+<tr><td>Basit getiri</td><td>Wilcoxon (medyan=0)</td><td>V = 325776, p = 0.1557</td><td>H<sub>0</sub> reddedilemez → konum (medyan) 0</td></tr></table>
+<p>Fiyatta JB ve SW farklı sonuç veriyor → testler farklı duyarlılıktadır (yorum sorusu olabilir).</p>
+<p><b>D'Agostino çarpıklık testi</b> (H<sub>a</sub>: data have a skewness):</p>
+<table><tr><th>Seri</th><th>skew</th><th>z</th><th>p</th><th>Karar</th></tr>
+<tr><td>Fiyat</td><td>1.1636</td><td>23.16</td><td>&lt;2.2e-16</td><td>Çarpık</td></tr>
+<tr><td>Basit getiri</td><td>0.36491</td><td>8.70</td><td>&lt;2.2e-16</td><td>Çarpık</td></tr>
+<tr><td>Log getiri</td><td>−0.002791</td><td>−0.069</td><td>0.9453</td><td><b>Simetrik</b></td></tr></table>
+<p><b>gofTest (Shapiro-Wilk GOF)</b>, tüm fiyat verisi (n = 3613): Normal için W = 0.7173, p = 0 → normal değil; <b>Lognormal</b> için W = 0.9063, p = 0 → lognormal de değil. (Ders 3: “Tüm borsa verileri lognormal dağılıma her zaman uymaz.”)</p>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 TSLA.Close: JB (p=0.1403) vs. Shapiro-Wilk (p=4.2e-06)</span><span class="src">Uyg 2 · s.14</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_14.png" alt="TSLA Close JB ve SW"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-exp"><b>Görsel Açıklaması:</b> Kapanış fiyatında Jarque-Bera (p=0.1403 &gt; 0.05) çarpıklık ve basıklık sıfıra yakın olduğu için H<sub>0</sub>'ı reddedemezken, Shapiro-Wilk (p=4.236e-06 &lt; 0.05) kantil sapmalarını yakalayarak normalliği reddeder.</div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 tsla_ret: Yoğunluk Grafiği, JB, Shapiro ve Wilcoxon</span><span class="src">Uyg 2 · s.16</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_16.png" alt="TSLA Getiri Normallik ve Wilcoxon"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-exp"><b>Görsel Açıklaması:</b> Pembe yoğunluk eğrisi mavi histogramın üzerinde sivri bir çan oluşturmaktadır. JB ve Shapiro-Wilk normalliği kesin reddeder (p &lt; 2.2e-16). Seri normal olmadığı için parametrik olmayan <b>Wilcoxon testi</b> yapılmış ve <b>p = 0.1557 &gt; 0.05</b> ile medyanın 0 olduğu kabul edilmiştir.</div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 D'Agostino Çarpıklık Testleri (agostino.test)</span><span class="src">Uyg 2 · s.17</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_17.png" alt="TSLA D'Agostino"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-exp"><b>Görsel Açıklaması:</b> Fiyat (p &lt; 2.2e-16) ve basit getiri (p &lt; 2.2e-16) anlamlı derecede çarpık iken, <b>log-getiri (<code>tsla_lret</code>) için skew = −0.00279, p = 0.9453 &gt; 0.05</b> çıkması logaritmik dönüşümün asimetriyi giderdiğini ve seriyi <b>simetrik</b> yaptığını kanıtlar!</div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 gofTest: Lognormal Dağılım Uyum İyiliği Testi</span><span class="src">Uyg 2 · s.19</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_19.png" alt="TSLA gofTest Lognormal"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-exp"><b>Görsel Açıklaması:</b> Tüm seri (n=3613) üzerinde yapılan <code>gofTest(..., distribution="lnorm")</code> sonucunda <b>p-value = 0 &lt; 0.05</b> çıkmıştır; yani TESLA fiyatları lognormal dağılıma da uymamaktadır.</div>
+  </div>
+</div>
+
+<h3>Adım 4 – Ortalama eşitliği (Welch İki Örneklem t-Testi) <span class="src">s.15</span></h3>
+<p>Seri ortadan iki gruba bölünüp Welch t-testi: t = 5.2897, df = 840.22, <b>p = 1.564e-07</b> → H<sub>0</sub> red → iki yarının ortalamaları <b>farklı</b> (233.42 vs 213.40) → fiyatın ortalaması sabit değil.</p>
+<div class="fig">
+  <div class="fig-head"><span>📊 Slayt Görseli: TSLA.Close İki Dönem Ortalama Eşitliği (Welch t-Testi)</span><span class="src">Uyg 2 · s.15</span></div>
+  <div class="fig-img-wrap"><img src="img/u2_15.png" alt="TSLA Welch t-test"><div class="fig-zoom-hint">🔍 Büyütmek için grafiğe tıkla</div></div>
+  <div class="fig-tags">
+    <span class="fig-tag"><b>mean of x = 233.42 vs. mean of y = 213.40</b></span>
+    <span class="fig-tag"><b>t = 5.2897, p-value = 1.564e-07 &lt; 0.05:</b> H<sub>0</sub> Red (Ortalamalar farklı / Durağan değil)</span>
+  </div>
+  <div class="fig-exp">
+    <b>Çıktı Açıklaması:</b> Fiyat serisi iki eşit parçaya bölündüğünde ilk yarının ortalaması 233.42$, ikinci yarının ortalaması 213.40$ çıkmıştır. <b>p = 1.564e-07 &lt; 0.05</b> olduğundan ortalamalar eşit değildir; fiyat serisi <b>ortalama açısından durağan değildir</b>.
+  </div>
+</div>
+
+<h3>Adım 5 – Varyans eşitliği (Levene Testleri) <span class="src">s.20-22</span></h3>
+<p>H<sub>0</sub>: Varyanslar eşittir. Seri <code>orta_deger &lt;- nrow(veri) %/% 2</code> ile ikiye bölünüp <code>leveneTest</code> (center = median):</p>
+<table><tr><th>Seri</th><th>F</th><th>p</th><th>Karar</th></tr>
+<tr><td>Fiyat</td><td>5378.7</td><td>&lt;2.2e-16</td><td>Varyanslar eşit değil</td></tr>
+<tr><td>Basit getiri</td><td>28.113</td><td>1.218e-07</td><td>Eşit değil</td></tr>
+<tr><td>Log getiri</td><td>27.711</td><td>1.497e-07</td><td>Eşit değil</td></tr></table>
+<p>→ Getirilerde de <b>değişen varyans</b> var (Ders 5 akışına göre: dönüşümler işe yaramazsa ARCH/GARCH).</p>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 TSLA.Close Levene Varyans Homojenliği Testi</span><span class="src">Uyg 2 · s.20</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_20.png" alt="TSLA Close Levene"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-exp"><b>Çıktı Açıklaması:</b> Fiyat serisinde <code>F value = 5378.7</code> ve <b>p &lt; 2.2e-16 ***</b> ile varyans homojenliği kesin olarak reddedilir.</div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 tsla_ret ve tsla_lret Levene Testleri</span><span class="src">Uyg 2 · s.21-22</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_22.png" alt="TSLA Log Getiri Levene"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-exp"><b>Çıktı Açıklaması:</b> Hem basit getiride (<code>F = 28.113, p = 1.218e-07</code>) hem de log-getiride (<code>F = 27.711, p = 1.497e-07</code>) H<sub>0</sub> reddedilir; getiri ve logaritma dönüşümü varyansı sabitlemeye yetmemiştir (ARCH/GARCH gerekir).</div>
+  </div>
+</div>
+
+<h3>Adım 6 – Model ve Öngörü Grafikleri: ARIMA(0,1,1) vs. ETS(M,A,N) <span class="src">s.23-24</span></h3>
+<p>Son <b>180</b> gözlem test için dışarıda bırakılıyor: toplam 3381 → training 3201, testing 180 (<code>ts_split(…, sample.out = 180)</code>) → bu, Ders 3'teki <b>dönem dışı kestirim</b> fikridir.</p>
+<table><tr><th></th><th>auto.arima → ARIMA(0,1,1)</th><th>ets → ETS(M,A,N)</th></tr>
+<tr><td>Parametreler</td><td>ma1 = −0.0381 (s.e. 0.0174), σ² = 19.98</td><td>α = 0.9844, β = 0.0027, σ = 0.0362</td></tr>
+<tr><td>AIC / BIC</td><td><b>18667.82</b> / 18679.96</td><td>23125.81 / 23156.16</td></tr>
+<tr><td>RMSE</td><td>4.4688</td><td>4.4734</td></tr>
+<tr><td>MAE</td><td>1.7356</td><td>1.7343</td></tr>
+<tr><td>MAPE</td><td>2.4858</td><td>2.4866</td></tr>
+<tr><td>MASE</td><td>0.9983</td><td>0.9976</td></tr></table>
+<p>ARIMA(0,1,1)'deki “1” fark derecesidir (d=1, Ders 5: fark alındıysa modelde ifade edilmeli). Öngörüler 180 adım için çizilmiş (<code>plot(forecast(fit_ets, h=180))</code>); öngörü aralıkları ileriye gittikçe genişliyor.</p>
+<div class="fig-grid">
+  <div class="fig">
+    <div class="fig-head"><span>📊 ARIMA(0,1,1) Model Çıktısı ve 180 Günlük Öngörü Grafiği</span><span class="src">Uyg 2 · s.23</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_23.png" alt="TSLA ARIMA Forecast"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>ARIMA(0,1,1):</b> p=0 (AR yok), <b>d=1 (1. fark alınmış)</b>, q=1 (ma1 = −0.0381)</span>
+      <span class="fig-tag"><b>Sağdaki Mavi Çizgi & Gri Bantlar:</b> 180 adımlık nokta öngörü ve %80/%95 öngörü aralıkları</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik ve Çıktı Açıklaması:</b> <code>auto.arima</code> fiyat serisinin durağan olmadığını tespit edip <b>1. farkını alarak (d=1)</b> <code>ARIMA(0,1,1)</code> modelini kurmuştur. Sağdaki grafikte 3201. gözlemden sonraki 180 günlük öngörü ufku (mavi yatay çizgi ve gittikçe açılan %80/%95 güven/öngörü hunisi) görülmektedir. AIC (18667.82) ve RMSE (4.4688) değerleri ETS modelinden daha düşüktür.
+    </div>
+  </div>
+  <div class="fig">
+    <div class="fig-head"><span>📊 ETS(M,A,N) Model Çıktısı ve 180 Günlük Öngörü Grafiği</span><span class="src">Uyg 2 · s.24</span></div>
+    <div class="fig-img-wrap"><img src="img/u2_24.png" alt="TSLA ETS Forecast"><div class="fig-zoom-hint">🔍 Büyütmek için tıkla</div></div>
+    <div class="fig-tags">
+      <span class="fig-tag"><b>ETS(M,A,N):</b> Multiplicative Error (Çarpımsal Hata), Additive Trend (Toplamsal Trend), None Seasonality (Mevsimsellik Yok)</span>
+      <span class="fig-tag"><b>Çok Genişleyen Mavi/Gri Huni:</b> Çarpımsal hata nedeniyle hızla açılan öngörü aralığı</span>
+    </div>
+    <div class="fig-exp">
+      <b>Grafik ve Çıktı Açıklaması:</b> Üstel düzleştirme modeli <code>ETS(M,A,N)</code> (Çarpımsal hata, Toplamsal trend, Mevsimsellik yok) olarak tahmin edilmiştir. Sağdaki öngörü grafiğinde hata terimi çarpımsal (M) olduğu için 180 günlük öngörü aralığı (mavi-gri gölgeli huni) ARIMA'ya kıyasla çok daha geniş açılmaktadır.
+    </div>
+  </div>
+</div>
+<div class="done-btn"><button class="primary" data-done="u2">✓ Bu bölümü bitirdim</button></div>
+</section>
+
+<!-- ================= PRATİK BÖLÜMLER (JS ile doldurulur) ================= -->
+<section id="mini"><h2>✍️ Konu Testleri</h2><p>Her soruyu cevapla → <b>Kontrol et</b>. Açıklama ve kaynak sayfa hemen görünür.</p><div class="row" id="miniTabs"></div><div id="miniBody"></div></section>
+<section id="exam"><h2>📝 Deneme Sınavları</h2><div id="examBody"></div></section>
+<section id="flash"><h2>🃏 Bilgi Kartları</h2><div id="flashBody"></div></section>
+
+<section id="formul">
+<h2>📄 Formül Kâğıdı (son tekrar)</h2>
+<table>
+<tr><th>Konu</th><th>Formül / Bilgi</th></tr>
+<tr><td>Basit net getiri</td><td>R<sub>t</sub> = P<sub>t</sub>/P<sub>t−1</sub> − 1 = (P<sub>t</sub> − P<sub>t−1</sub>)/P<sub>t−1</sub></td></tr>
+<tr><td>Basit brüt getiri</td><td>1 + R<sub>t</sub> = P<sub>t</sub>/P<sub>t−1</sub></td></tr>
+<tr><td>k dönem bileşik</td><td>1 + R<sub>t</sub>(k) = P<sub>t</sub>/P<sub>t−k</sub> = ∏<sub>j=0</sub><sup>k−1</sup>(1+R<sub>t−j</sub>)</td></tr>
+<tr><td>2 dönem</td><td>1+R<sub>t</sub>(2) = 1 + R<sub>t−1</sub> + R<sub>t</sub> + R<sub>t−1</sub>R<sub>t</sub> ≈ 1 + R<sub>t−1</sub> + R<sub>t</sub></td></tr>
+<tr><td>Yıllıklandırılmış</td><td>[∏(1+R<sub>t−j</sub>)]<sup>1/k</sup> − 1 ≈ (1/k)ΣR<sub>t−j</sub> (Taylor)</td></tr>
+<tr><td>Sürekli bileşik faiz</td><td>A = C·e<sup>r·n</sup>; &nbsp; C = A·e<sup>−r·n</sup>; &nbsp; (1+r/m)<sup>m</sup>; %10 → 1.10517</td></tr>
+<tr><td>Log getiri</td><td>r<sub>t</sub> = ln(1+R<sub>t</sub>) = ln P<sub>t</sub> − ln P<sub>t−1</sub>; &nbsp; R<sub>t</sub> = e<sup>r<sub>t</sub></sup> − 1</td></tr>
+<tr><td>Çok dönem log</td><td>r<sub>t</sub>[k] = r<sub>t</sub> + r<sub>t−1</sub> + … + r<sub>t−k+1</sub></td></tr>
+<tr><td>Yüzdelik</td><td>r = 100 ln(1+R/100); &nbsp; R = 100(e<sup>r/100</sup> − 1)</td></tr>
+<tr><td>Portföy</td><td>R<sub>p,t</sub> = Σ w<sub>i</sub>R<sub>it</sub></td></tr>
+<tr><td>Temettü</td><td>R<sub>t</sub> = (P<sub>t</sub>+D<sub>t</sub>)/P<sub>t−1</sub> − 1; &nbsp; r<sub>t</sub> = ln(P<sub>t</sub>+D<sub>t</sub>) − ln P<sub>t−1</sub></td></tr>
+<tr><td>Aşırı getiri</td><td>Z<sub>t</sub> = R<sub>t</sub> − R<sub>0t</sub>; &nbsp; z<sub>t</sub> = r<sub>t</sub> − r<sub>0t</sub></td></tr>
+<tr><td>Varyans</td><td>σ̂² = Σ(x<sub>t</sub>−μ̂)²/(T−1)</td></tr>
+<tr><td>Çarpıklık / Basıklık</td><td>Ŝ = Σ(x−μ̂)³/((T−1)σ̂³); &nbsp; K̂ = Σ(x−μ̂)⁴/((T−1)σ̂⁴)</td></tr>
+<tr><td>Lognormal</td><td>E(R) = e<sup>μ+σ²/2</sup> − 1; &nbsp; Var(R) = e<sup>2μ+σ²</sup>(e<sup>σ²</sup> − 1)</td></tr>
+<tr><td>Ölçek karışımı</td><td>r<sub>t</sub> ~ (1−X)N(μ,σ<sub>1</sub>²) + XN(μ,σ<sub>2</sub>²), X ~ Bernoulli</td></tr>
+<tr><td>Çarpıklık testi</td><td>S* = Ŝ/√(6/T) ~ N(0,1); H<sub>0</sub>: simetrik</td></tr>
+<tr><td>Basıklık testi</td><td>K* = (K̂−3)/√(24/T) ~ N(0,1); H<sub>0</sub>: normal kuyruk</td></tr>
+<tr><td>Jarque-Bera</td><td>JB = (K*)² + (S*)² ~ χ²<sub>2</sub>; H<sub>0</sub>: normal</td></tr>
+<tr><td>ZS modeli</td><td>Y<sub>t</sub> = f(t) + ε<sub>t</sub></td></tr>
+<tr><td>Zayıf durağanlık</td><td>E(Y<sub>t</sub>)=μ, V(Y<sub>t</sub>)=σ², Cov(Y<sub>t</sub>,Y<sub>s</sub>)=γ<sub>s−t</sub></td></tr>
+<tr><td>Box-Cox</td><td>z<sup>(λ)</sup> = (z<sup>λ</sup> − 1)/λ; λ=0 log, λ=−1 1/z, λ=0.5 √z, λ=2 kare</td></tr>
+<tr><td>Fark</td><td>d=1: y<sub>t</sub> − y<sub>t−1</sub> (b=2); d=2: y<sub>t</sub> − 2y<sub>t−1</sub> + y<sub>t−2</sub> (b=3); fark yok b=1</td></tr>
+<tr><td>DF</td><td>ΔY<sub>t</sub> = δY<sub>t−1</sub> + u; + β<sub>1</sub>; + β<sub>1</sub> + β<sub>2</sub>t; H<sub>0</sub>: δ=0 (birim kök)</td></tr>
+<tr><td>Schwert</td><td>p<sub>max</sub> = [12(n/100)<sup>1/4</sup>]</td></tr>
+<tr><td>KPSS</td><td>H<sub>0</sub>: σ<sub>u</sub>² = 0 (durağan); H<sub>1</sub>: σ<sub>u</sub>² &gt; 0</td></tr>
+<tr><td>Öngörü horizonu</td><td>Yakın &lt;10, Kısa 10–30, Orta 30–90, Uzun &gt;90 zd</td></tr>
+<tr><td>Değerlendirme</td><td>Arasınav %30, Ödev-Sunum %30, Final %40</td></tr>
+</table>
+<div class="row"><button onclick="window.print()">🖨️ Yazdır</button></div>
+</section>
+
+<section id="ilerleme"><h2>📊 İlerleme</h2><div id="progBody"></div></section>
+</main>
+
+<script src="questions.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
+
